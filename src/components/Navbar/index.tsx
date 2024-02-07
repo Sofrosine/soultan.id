@@ -1,0 +1,227 @@
+import useWindowSize from "@/hooks/useWindowSize";
+import Image from "next/image";
+import React, {
+  CSSProperties,
+  FC,
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
+import { InViewHookResponse } from "react-intersection-observer";
+import NavItem from "./NavItem";
+
+export interface Menu {
+  label: string;
+  link: string;
+  width?: number;
+  height?: number;
+  top?: number;
+  left?: number;
+  active?: boolean;
+  entry?: IntersectionObserverEntry;
+}
+
+interface Props {
+  view: {
+    homeView: {
+      homeInView: boolean;
+      homeEntry?: IntersectionObserverEntry;
+    };
+    portofolioView: {
+      portofolioInView: boolean;
+      portofolioEntry?: IntersectionObserverEntry;
+    };
+    journeyView: {
+      journeyInView: boolean;
+      journeyEntry?: IntersectionObserverEntry;
+    };
+    blogView: {
+      blogInView: boolean;
+      blogEntry?: IntersectionObserverEntry;
+    };
+    fyiView: {
+      fyiInView: boolean;
+      fyiEntry?: IntersectionObserverEntry;
+    };
+  };
+}
+
+const Navbar: FC<Props> = ({ view }) => {
+  const { homeView, blogView, fyiView, journeyView, portofolioView } =
+    view || {};
+  const { homeInView, homeEntry } = homeView;
+  const { blogInView, blogEntry } = blogView;
+  const { fyiInView, fyiEntry } = fyiView;
+  const { journeyInView, journeyEntry } = journeyView;
+  const { portofolioInView, portofolioEntry } = portofolioView;
+
+  const [, width] = useWindowSize();
+
+  const [menu, setMenu] = useState<Menu[]>([
+    {
+      label: "beranda",
+      link: "#home",
+      entry: homeEntry,
+      active: true,
+    },
+    {
+      label: "portofolio",
+      link: "#portofolio",
+      entry: portofolioEntry,
+    },
+    {
+      label: "journey",
+      link: "#journey",
+      entry: journeyEntry,
+    },
+    {
+      label: "blog",
+      link: "#blog",
+      entry: blogEntry,
+    },
+    {
+      label: "fyi",
+      link: "#fyi",
+      entry: fyiEntry,
+    },
+  ]);
+  const [indicator, setIndicator] = useState<CSSProperties>();
+
+  const handleRender = useCallback((menu: Menu) => {
+    setMenu((prev) =>
+      prev.map((item) => (item.link === menu.link ? menu : item))
+    );
+  }, []);
+
+  const generateStyle = useCallback(() => {
+    const activeMenu = menu.find((v) => v.active);
+
+    if (activeMenu) {
+      setIndicator({
+        top: 0,
+        left: (activeMenu?.left || 0)  ,
+        width: activeMenu.width,
+        height: 8,
+      });
+    }
+  }, [menu]);
+
+  useEffect(() => {
+    generateStyle();
+    // setIsClient(true);
+  }, [generateStyle]);
+
+  useEffect(() => {
+    if (homeEntry) {
+      setMenu((prev) =>
+        prev.map((m) => (m.link === "#home" ? { ...m, entry: homeEntry } : m))
+      );
+    }
+
+    if (portofolioEntry) {
+      setMenu((prev) =>
+        prev.map((m) =>
+          m.link === "#portofolio" ? { ...m, entry: portofolioEntry } : m
+        )
+      );
+    }
+
+    if (journeyEntry) {
+      setMenu((prev) =>
+        prev.map((m) =>
+          m.link === "#journey" ? { ...m, entry: journeyEntry } : m
+        )
+      );
+    }
+
+    if (blogEntry) {
+      setMenu((prev) =>
+        prev.map((m) => (m.link === "#blog" ? { ...m, entry: blogEntry } : m))
+      );
+    }
+
+    if (fyiEntry) {
+      setMenu((prev) =>
+        prev.map((m) => (m.link === "#fyi" ? { ...m, entry: fyiEntry } : m))
+      );
+    }
+  }, [homeEntry, portofolioEntry, journeyEntry, blogEntry, fyiEntry]);
+
+  useEffect(() => {
+    if (homeInView) {
+      setMenu((prev) =>
+        prev.map((m) =>
+          m.link === "#home" ? { ...m, active: true } : { ...m, active: false }
+        )
+      );
+    }
+
+    if (portofolioInView) {
+      setMenu((prev) =>
+        prev.map((m) =>
+          m.link === "#portofolio"
+            ? { ...m, active: true }
+            : { ...m, active: false }
+        )
+      );
+    }
+
+    if (journeyInView) {
+      setMenu((prev) =>
+        prev.map((m) =>
+          m.link === "#journey"
+            ? { ...m, active: true }
+            : { ...m, active: false }
+        )
+      );
+    }
+
+    if (blogInView) {
+      setMenu((prev) =>
+        prev.map((m) =>
+          m.link === "#blog" ? { ...m, active: true } : { ...m, active: false }
+        )
+      );
+    }
+
+    if (fyiInView) {
+      setMenu((prev) =>
+        prev.map((m) =>
+          m.link === "#fyi" ? { ...m, active: true } : { ...m, active: false }
+        )
+      );
+    }
+  }, [portofolioInView, homeInView, journeyInView, blogInView, fyiInView]);
+
+  return (
+    <header className="sticky top-0 z-50 flex items-center w-full justify-between px-[7.42rem] bg-white">
+      <div className="relative w-[153px] h-[40px]">
+        <Image fill alt="logo" src={"/logo.svg"} />
+      </div>
+      <nav className="flex z-20 items-center gap-6 relative">
+        {menu.map((item) => {
+          return (
+            <NavItem
+              key={item?.label}
+              menu={item}
+              onRender={handleRender}
+              onClick={() => {
+                if (item?.entry) {
+                  item?.entry.target.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }
+              }}
+            />
+          );
+        })}
+        <div
+          className="bg-primary h-[8px] absolute transition-all w-[110px] z-50"
+          style={indicator}
+        />
+      </nav>
+    </header>
+  );
+};
+
+export default Navbar;
