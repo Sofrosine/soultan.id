@@ -11,8 +11,8 @@ import HomePortofolio from "./(fragments)/HomePortofolio";
 export default function Home() {
   // const [homeRef, homeInView, homeEntry] = useInView({ threshold: 0.3 });
   const homeView = useInView({});
-  const portofolioView = useInView({ threshold: 0.5 });
-  const journeyView = useInView({ threshold: 0.5 });
+  const portofolioView = useInView({ threshold: 0.3 });
+  const journeyView = useInView({ threshold: 0.3 });
   const blogView = useInView({});
   const fyiView = useInView();
 
@@ -49,7 +49,14 @@ export default function Home() {
         }}
       />
       <main className="flex flex-col">
-        <HomeAbout ref={homeRef} />
+        <HomeAbout
+          ref={homeRef}
+          onClickDown={() => {
+            portofolioEntry?.target.scrollIntoView({
+              behavior: "smooth",
+            });
+          }}
+        />
         <HomePortofolio ref={portofolioRef} />
         <HomeJourney ref={journeyRef} />
         <HomeBlog ref={blogRef} />

@@ -194,7 +194,7 @@ const Navbar: FC<Props> = ({ view }) => {
   }, [portofolioInView, homeInView, journeyInView, blogInView, fyiInView]);
 
   return (
-    <header className="sticky top-0 z-50 flex items-center w-full justify-between px-[7.42rem] bg-white">
+    <header className="fixed top-0 z-50 flex items-center w-full justify-between px-[7.42rem] bg-white">
       <div className="relative w-[153px] h-[40px]">
         <Image fill alt="logo" src={"/logo.svg"} />
       </div>
