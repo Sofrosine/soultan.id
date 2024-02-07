@@ -57,7 +57,7 @@ const Navbar: FC<Props> = ({ view }) => {
 
   const [menu, setMenu] = useState<Menu[]>([
     {
-      label: "beranda",
+      label: "home",
       link: "#home",
       entry: homeEntry,
       active: true,
@@ -220,7 +220,7 @@ const Navbar: FC<Props> = ({ view }) => {
       </nav>
     </header>
   ) : (
-    <header className="sticky top-0 z-50">
+    <header className="fixed w-full top-0 z-50">
       <div className="flex items-center justify-between bg-white p-4 shadow-sm">
         <div className="relative w-[153px] h-[40px]">
           <Image fill alt="logo" src={"/logo.svg"} />
@@ -242,7 +242,7 @@ const Navbar: FC<Props> = ({ view }) => {
               <NavItem
                 className={clsx(
                   "text-title-large text-center relative py-4",
-                  item?.active ? "text-primary" : "text-gray-600"
+                  item?.active ? "text-primary" : "text-black"
                 )}
                 key={i}
                 menu={item}
