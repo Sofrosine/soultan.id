@@ -1,13 +1,9 @@
 import useWindowSize from "@/hooks/useWindowSize";
+import clsx from "clsx";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import React, {
-  CSSProperties,
-  FC,
-  useCallback,
-  useEffect,
-  useState,
-} from "react";
-import { InViewHookResponse } from "react-intersection-observer";
+import { CSSProperties, FC, useCallback, useEffect, useState } from "react";
+import ButtonNav from "./ButtonNav";
 import NavItem from "./NavItem";
 
 export interface Menu {
@@ -55,6 +51,8 @@ const Navbar: FC<Props> = ({ view }) => {
   const { journeyInView, journeyEntry } = journeyView;
   const { portofolioInView, portofolioEntry } = portofolioView;
 
+  const [show, setShow] = useState(false);
+
   const [, width] = useWindowSize();
 
   const [menu, setMenu] = useState<Menu[]>([
@@ -99,7 +97,7 @@ const Navbar: FC<Props> = ({ view }) => {
     if (activeMenu) {
       setIndicator({
         top: 0,
-        left: (activeMenu?.left || 0)  ,
+        left: activeMenu?.left || 0,
         width: activeMenu.width,
         height: 8,
       });
@@ -193,7 +191,7 @@ const Navbar: FC<Props> = ({ view }) => {
     }
   }, [portofolioInView, homeInView, journeyInView, blogInView, fyiInView]);
 
-  return (
+  return width >= 768 ? (
     <header className="fixed top-0 z-50 flex items-center w-full justify-between px-[7.42rem] bg-white">
       <div className="relative w-[153px] h-[40px]">
         <Image fill alt="logo" src={"/logo.svg"} />
@@ -220,6 +218,47 @@ const Navbar: FC<Props> = ({ view }) => {
           style={indicator}
         />
       </nav>
+    </header>
+  ) : (
+    <header className="sticky top-0 z-50">
+      <div className="flex items-center justify-between bg-white p-4 shadow-sm">
+        <div className="relative w-[153px] h-[40px]">
+          <Image fill alt="logo" src={"/logo.svg"} />
+        </div>
+        <ButtonNav isOpen={show} onClick={() => setShow(!show)} />
+      </div>
+      <AnimatePresence>
+        {show && (
+          <motion.nav
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className={clsx(
+              "w-full h-screen top-18 flex flex-col absolute z-50 p-2 bg-opacity-[0.07] backdrop-blur-xl"
+            )}
+          >
+            {menu.map((item, i) => (
+              <NavItem
+                className={clsx(
+                  "text-title-large text-center relative py-4",
+                  item?.active ? "text-primary" : "text-gray-600"
+                )}
+                key={i}
+                menu={item}
+                onRender={handleRender}
+                onClick={() => {
+                  if (item.entry) {
+                    item.entry.target.scrollIntoView({
+                      behavior: "smooth",
+                    });
+                  }
+                }}
+              />
+            ))}
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

@@ -1,4 +1,6 @@
 import FadeInSection from "@/components/FadeSection";
+import useWindowSize from "@/hooks/useWindowSize";
+import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import React, { ForwardRefRenderFunction, forwardRef } from "react";
@@ -32,32 +34,37 @@ const HomeAbout: ForwardRefRenderFunction<HTMLElement, Props> = (
 ) => {
   const { onClickDown } = props || {};
 
+  const [, width] = useWindowSize();
+
   return (
     <section
       ref={ref}
-      className="grid grid-cols-12 h-[100vh] bg-white px-[7rem] overflow-hidden"
+      className="flex flex-col-reverse md:grid md:grid-cols-12 h-[100vh] bg-white px-4 md:px-[2rem] lg:px-[7rem] overflow-hidden"
     >
-      <div className="col-span-5 flex flex-col justify-center">
+      <div className="col-span-5 py-4 md:pt-0 h-1/2 md:h-auto flex flex-col justify-start md:justify-center">
         <FadeInSection type="fade-in-left">
-          <h1 className="text-primary text-display-large mb-2">
+          <h1 className="text-primary text-headline-large font-bold md:text-display-medium lg:text-display-large mb-2">
             Frontend Engineer
           </h1>
-          <div className="text-title-large italic text-secondary">
+          <div className="text-title-medium lg:text-title-large italic text-secondary">
             With highly organized and dedicated personality. Based in Sleman,
             Indonesia
           </div>
         </FadeInSection>
         <div
           onClick={() => onClickDown && onClickDown()}
-          className="absolute animate-bounce bottom-4 left-[7rem] h-[4.5rem] w-[2.3rem] hover:cursor-pointer"
+          className={clsx(
+            "absolute animate-bounce bottom-4 left-4 md:left-[2rem] lg:left-[7rem]  h-[3rem] md:h-[4.5rem] w-[1.5rem] md:w-[2.3rem] hover:cursor-pointer",
+            width <= 360 ? "hidden" : "block"
+          )}
         >
           <Image src={"/triple-chevron-pink.svg"} alt="" fill />
         </div>
       </div>
       <AnimatePresence>
-        <div className="col-span-7 flex items-center relative">
-          <div className="relative flex justify-center h-full w-full">
-            <div className="relative h-[80%] w-[90%] animate-spin-slow">
+        <div className="col-span-7 h-full md:h-auto flex items-center relative">
+          <div className="flex relative justify-center h-full w-full">
+            <div className="absolute top-1/3 md:relative h-[60%] lg:h-[80%] w-full lg:w-[90%] animate-bounce">
               <Image src={"/hero-bg-circle.png"} alt="hero-bg-circle" fill />
             </div>
             <motion.div
@@ -65,7 +72,7 @@ const HomeAbout: ForwardRefRenderFunction<HTMLElement, Props> = (
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
-              className="absolute bottom-0 h-[70%] w-[80%]"
+              className="absolute bottom-0 h-[60%] md:h-[60%] lg:h-[70%] w-full md:w-[70%] lg:w-[80%]"
             >
               <Image
                 className="object-contain"
@@ -74,11 +81,11 @@ const HomeAbout: ForwardRefRenderFunction<HTMLElement, Props> = (
                 src={"/hero-profile.png"}
               />
             </motion.div>
-            <div className="absolute bottom-0 right-8 h-[6rem] w-[12rem]">
+            <div className="absolute bottom-0 right-8 md:h-[6rem] md:w-[12rem]">
               <Image fill alt="hero-circle" src={"/hero-circle.png"} />
             </div>
           </div>
-          <div className="flex flex-col gap-6">
+          <div className="absolute md:relative right-0 flex flex-col gap-6">
             {SOCIAL_MEDIA.map((val) => {
               return (
                 <Image

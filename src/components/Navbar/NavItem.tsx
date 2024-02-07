@@ -32,7 +32,8 @@ const NavItem: FC<Props> = ({ menu, onRender, onClick, className }) => {
       key={menu?.label}
       className={clsx(
         "z-10 px-4 py-8 text-title-small font-bold uppercase hover:cursor-pointer",
-        menu.active ? "text-primary" : "text-secondary"
+        menu.active ? "text-primary" : "text-secondary",
+        className
       )}
       onClick={onClick}
     >
