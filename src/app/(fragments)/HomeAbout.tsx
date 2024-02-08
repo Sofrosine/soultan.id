@@ -54,8 +54,7 @@ const HomeAbout: ForwardRefRenderFunction<HTMLElement, Props> = (
         <div
           onClick={() => onClickDown && onClickDown()}
           className={clsx(
-            "absolute animate-bounce bottom-4 left-4 md:left-[2rem] lg:left-[7rem]  h-[3rem] md:h-[4.5rem] w-[1.5rem] md:w-[2.3rem] hover:cursor-pointer",
-            width <= 360 ? "hidden" : "block"
+            "hidden md:block absolute animate-bounce bottom-4 left-4 md:left-[2rem] lg:left-[7rem] h-[3rem] md:h-[4.5rem] w-[1.5rem] md:w-[2.3rem] hover:cursor-pointer"
           )}
         >
           <Image src={"/triple-chevron-pink.svg"} alt="" fill />

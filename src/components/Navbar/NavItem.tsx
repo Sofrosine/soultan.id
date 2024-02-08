@@ -22,7 +22,6 @@ const NavItem: FC<Props> = ({ menu, onRender, onClick, className }) => {
       left: ref.current?.offsetLeft,
       top: ref.current?.offsetTop,
     });
-    console.log(menu.label, ref.current?.offsetLeft, ref.current?.offsetWidth);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onRender, width]);
 

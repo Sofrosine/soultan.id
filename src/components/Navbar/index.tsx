@@ -53,7 +53,7 @@ const Navbar: FC<Props> = ({ view }) => {
 
   const [show, setShow] = useState(false);
 
-  const [, width] = useWindowSize();
+  // const [, width] = useWindowSize();
 
   const [menu, setMenu] = useState<Menu[]>([
     {
@@ -191,74 +191,77 @@ const Navbar: FC<Props> = ({ view }) => {
     }
   }, [portofolioInView, homeInView, journeyInView, blogInView, fyiInView]);
 
-  return width >= 768 ? (
-    <header className="fixed top-0 z-50 flex items-center w-full justify-between px-[7.42rem] bg-white">
-      <div className="relative w-[153px] h-[40px]">
-        <Image fill alt="logo" src={"/logo.svg"} />
-      </div>
-      <nav className="flex z-20 items-center gap-6 relative">
-        {menu.map((item) => {
-          return (
-            <NavItem
-              key={item?.label}
-              menu={item}
-              onRender={handleRender}
-              onClick={() => {
-                if (item?.entry) {
-                  item?.entry.target.scrollIntoView({
-                    behavior: "smooth",
-                  });
-                }
-              }}
-            />
-          );
-        })}
-        <div
-          className="bg-primary h-[8px] absolute transition-all w-[110px] z-50"
-          style={indicator}
-        />
-      </nav>
-    </header>
-  ) : (
-    <header className="fixed w-full top-0 z-50">
-      <div className="flex items-center justify-between bg-white p-4 shadow-sm">
-        <div className="relative w-[153px] h-[40px]">
-          <Image fill alt="logo" src={"/logo.svg"} />
+  return (
+    <header>
+      <div className="hidden lg:flex fixed top-0 z-50 items-center w-full justify-between px-[4rem] xl:px-[7.42rem] bg-white">
+        <div>
+          <div className="relative w-[153px] h-[40px]">
+            <Image fill alt="logo" src={"/logo.svg"} />
+          </div>
         </div>
-        <ButtonNav isOpen={show} onClick={() => setShow(!show)} />
-      </div>
-      <AnimatePresence>
-        {show && (
-          <motion.nav
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className={clsx(
-              "w-full h-screen top-18 flex flex-col absolute z-50 p-2 bg-opacity-[0.07] backdrop-blur-xl"
-            )}
-          >
-            {menu.map((item, i) => (
+        <nav className="flex z-20 items-center gap-6 relative">
+          {menu.map((item) => {
+            return (
               <NavItem
-                className={clsx(
-                  "text-title-large text-center relative py-4",
-                  item?.active ? "text-primary" : "text-black"
-                )}
-                key={i}
+                key={item?.label}
                 menu={item}
                 onRender={handleRender}
                 onClick={() => {
-                  if (item.entry) {
-                    item.entry.target.scrollIntoView({
+                  if (item?.entry) {
+                    item?.entry.target.scrollIntoView({
                       behavior: "smooth",
                     });
                   }
                 }}
               />
-            ))}
-          </motion.nav>
-        )}
-      </AnimatePresence>
+            );
+          })}
+          <div
+            className="bg-primary h-[8px] absolute transition-all w-[110px] z-50"
+            style={indicator}
+          />
+        </nav>
+      </div>
+      <div className="block lg:hidden fixed w-full top-0 z-50">
+        <div className="flex items-center justify-between bg-white p-4 shadow-sm">
+          <div className="relative w-[153px] h-[40px]">
+            <Image fill alt="logo2" src={"/logo.svg"} />
+          </div>
+          <ButtonNav isOpen={show} onClick={() => setShow(!show)} />
+        </div>
+        <AnimatePresence>
+          {show && (
+            <motion.nav
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className={clsx(
+                "w-full h-screen top-18 flex flex-col absolute z-50 p-2 bg-opacity-[0.07] backdrop-blur-xl"
+              )}
+            >
+              {menu.map((item, i) => (
+                <NavItem
+                  className={clsx(
+                    "text-title-large text-center relative py-4",
+                    item?.active ? "text-primary" : "text-black"
+                  )}
+                  key={i}
+                  menu={item}
+                  onRender={handleRender}
+                  onClick={() => {
+                    if (item.entry) {
+                      item.entry.target.scrollIntoView({
+                        behavior: "smooth",
+                      });
+                    }
+                  }}
+                />
+              ))}
+            </motion.nav>
+          )}
+        </AnimatePresence>
+      </div>
     </header>
   );
 };
