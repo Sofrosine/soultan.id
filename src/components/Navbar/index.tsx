@@ -217,7 +217,7 @@ const Navbar: FC<Props> = ({ view }) => {
             );
           })}
           <div
-            className="bg-primary h-[8px] absolute transition-all w-[110px] z-50"
+            className="bg-primary absolute transition-all z-50"
             style={indicator}
           />
         </nav>
