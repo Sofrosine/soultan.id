@@ -8,7 +8,7 @@ interface ButtonNavProps {
 
 const ButtonNav: FC<ButtonNavProps> = ({ onClick, isOpen }) => {
   return (
-    <button className="w-8 h-8 absolute right-6" onClick={onClick}>
+    <div className="w-8 h-8 absolute right-6 hover:cursor-pointer" onClick={onClick}>
       <span
         className={clsx(
           "h-[3px] bg-primary w-8 block absolute transition-all duration-500",
@@ -36,7 +36,7 @@ const ButtonNav: FC<ButtonNavProps> = ({ onClick, isOpen }) => {
           }
         )}
       ></span>
-    </button>
+    </div>
   );
 };
 
