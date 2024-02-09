@@ -57,3 +57,23 @@
   visibility: visible;
   display: flex;
 }
+
+
+button {
+  background-color: #F25244;
+  color: white;
+  font-size: 1rem;
+  padding: 0.571rem 1.142rem;
+  border-radius: 0.571rem;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
