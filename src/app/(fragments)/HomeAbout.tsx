@@ -63,7 +63,7 @@ const HomeAbout: ForwardRefRenderFunction<HTMLElement, Props> = (
       <AnimatePresence>
         <div className="col-span-7 h-full md:h-auto flex items-center relative">
           <div className="flex relative justify-center h-full w-full">
-            <div className="absolute top-1/3 md:relative h-[60%] lg:h-[80%] w-full lg:w-[90%] animate-bounce">
+            <div className="absolute top-1/3 md:relative h-[60%] lg:h-[80%] w-full lg:w-[90%] animate-spin-slow">
               <Image src={"/hero-bg-circle.png"} alt="hero-bg-circle" fill />
             </div>
             <motion.div

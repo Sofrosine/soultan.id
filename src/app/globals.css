@@ -58,9 +58,8 @@
   display: flex;
 }
 
-
 button {
-  background-color: #F25244;
+  background-color: #f25244;
   color: white;
   font-size: 1rem;
   padding: 0.571rem 1.142rem;
@@ -76,4 +75,19 @@ button {
 .hide-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+.image-container {
+  width: 100%;
+}
+
+.image-container > div {
+  position: unset !important;
+}
+
+.image-container .image {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
 }

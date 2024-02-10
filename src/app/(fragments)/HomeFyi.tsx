@@ -7,7 +7,7 @@ const HomeFyi: ForwardRefRenderFunction<HTMLElement, Props> = (
   ref
 ) => {
   return (
-    <section ref={ref} className="h-screen bg-red-200">
+    <section ref={ref} className="h-screen bg-black-text">
       asldksald
     </section>
   );

@@ -13,3 +13,12 @@ interface PortofolioProps {
   link?: string;
   main_stack: "react-native" | "react-next" | "flutter";
 }
+
+interface JourneyProps {
+  logo: string;
+  duration: string;
+  company: string;
+  role: string;
+  description: string[];
+  link: string;
+}
