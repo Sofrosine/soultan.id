@@ -25,7 +25,7 @@ const HomePortofolio: ForwardRefRenderFunction<HTMLElement, Props> = (
   return (
     <section
       ref={ref}
-      className="min-h-screen bg-white lg:px-[7rem] pt-[2.85rem] overflow-hidden"
+      className="min-h-screen bg-black-text lg:px-[7rem] pt-[2.85rem] overflow-hidden"
     >
       <div className="flex flex-col xl:flex-row xl:items-end gap-4">
         <div className="text-start text-headline-medium md:text-display-medium text-primary font-normal md:font-normal px-4 md:px-[2rem]">

@@ -11,7 +11,7 @@ import HomePortofolio from "./(fragments)/HomePortofolio";
 export default function Home() {
   // const [homeRef, homeInView, homeEntry] = useInView({ threshold: 0.3 });
   const homeView = useInView({});
-  const portofolioView = useInView({ threshold: 0.3 });
+  const portofolioView = useInView({ threshold: 0.1 });
   const journeyView = useInView({ threshold: 0.3 });
   const blogView = useInView({});
   const fyiView = useInView();
@@ -23,7 +23,7 @@ export default function Home() {
   const [portofolioRef, portofolioInView, portofolioEntry] = portofolioView;
 
   return (
-    <div className="bg-white text-black-text">
+    <div className="bg-black-text text-black-text">
       <Navbar
         view={{
           homeView: {
