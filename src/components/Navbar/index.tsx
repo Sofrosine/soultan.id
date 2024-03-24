@@ -193,7 +193,7 @@ const Navbar: FC<Props> = ({ view }) => {
 
   return (
     <header>
-      <div className="hidden lg:flex fixed top-0 z-50 items-center w-full justify-between px-[4rem] xl:px-[7.42rem] bg-black-text">
+      <div className="hidden lg:flex fixed top-0 z-50 items-center w-full justify-between px-[4rem] xl:px-[7.42rem] bg-tertiary">
         <div>
           <div className="relative w-[153px] h-[40px]">
             <Image fill alt="logo" src={"/logo.svg"} />
@@ -223,7 +223,7 @@ const Navbar: FC<Props> = ({ view }) => {
         </nav>
       </div>
       <div className="block lg:hidden fixed w-full top-0 z-50">
-        <div className="flex items-center justify-between bg-black-text p-4 shadow-sm">
+        <div className="flex items-center justify-between bg-tertiary p-4 shadow-sm">
           <div className="relative w-[153px] h-[40px]">
             <Image fill alt="logo2" src={"/logo.svg"} />
           </div>

@@ -33,7 +33,7 @@ const CardJourney: FC<Props> = ({ item }) => {
       <div className="text-body-large text-primary mt-2 font-normal mb-2">
         {item?.role} at {item?.company}
       </div>
-      <ul className="text-white list-disc list-inside flex flex-col gap-1">
+      <ul className="text-primary list-disc list-inside flex flex-col gap-1">
         {item?.description?.map((val) => {
           return (
             <li key={val} className="items-center list-item">

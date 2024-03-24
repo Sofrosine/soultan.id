@@ -10,9 +10,9 @@ const HomeJourney: ForwardRefRenderFunction<HTMLElement, Props> = (
   ref
 ) => {
   return (
-    <section ref={ref} className="bg-black-text pt-[3.85rem] min-h-screen">
+    <section ref={ref} className="bg-tertiary pt-[3.85rem] min-h-screen">
       <div className="grid grid-cols-12">
-        <div className="col-span-12 xl:col-span-3 bg-primary h-full xl:h-1/3 py-[1.71rem] px-[2.28rem] text-headline-medium md:text-display-medium text-white">
+        <div className="col-span-12 xl:col-span-3 bg-primary h-full xl:h-1/3 py-[1.71rem] px-[2.28rem] text-headline-medium md:text-display-medium text-tertiary">
           <FadeInSection type="fade-in-left">
             <h3 className="font-normal">The</h3>
             <h3 className="font-bold">Journey</h3>

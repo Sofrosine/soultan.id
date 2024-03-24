@@ -18,8 +18,9 @@ const config: Config = {
       },
       colors: {
         "black-text": "#403631",
-        primary: "#F25244",
-        secondary: "#F2AEC7",
+        primary: "#2F404F",
+        secondary: "#3F7C88",
+        tertiary: '#C7DAD3',
 
         success: "#179C70",
         info: "#2CB5DB",

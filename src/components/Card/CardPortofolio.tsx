@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React, { FC } from "react";
 
 interface Props {
@@ -18,18 +19,18 @@ const CardPortofolio: FC<Props> = ({ item }) => {
               <Image src={item?.logo} alt="" fill />
             </div>
           ) : (
-            <div className="font-bold text-headline-large md:text-display-medium text-white">{item?.name}</div>
+            <div className="font-bold text-headline-large md:text-display-medium text-primary">{item?.name}</div>
           )}
           <div className="text-body-medium text-secondary mt-2">
             Created at {item?.created_at}
           </div>
-          <div className="mt-4 mb-2 text-title-medium text-white">{item?.description}</div>
+          <div className="mt-4 mb-2 text-title-medium text-primary">{item?.description}</div>
           <div className="flex flex-wrap gap-2">
             {item?.stacks?.map((val) => {
               return (
                 <div
                   key={val}
-                  className="px-3 py-2 border text-white border-secondary rounded-lg text-title-small capitalize"
+                  className="px-3 py-2 border text-primary border-secondary rounded-lg text-title-small capitalize"
                 >
                   {val}
                 </div>
@@ -38,11 +39,11 @@ const CardPortofolio: FC<Props> = ({ item }) => {
           </div>
         </div>
         {item?.link && (
-          <div className="flex">
-            <button onClick={() => window.open(item?.link)}>
+          <Link target="_blank" href={item?.link} className="flex">
+            <button>
               Visit Project
             </button>
-          </div>
+          </Link>
         )}
       </div>
     </div>

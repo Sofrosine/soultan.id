@@ -23,7 +23,7 @@ export default function Home() {
   const [portofolioRef, portofolioInView, portofolioEntry] = portofolioView;
 
   return (
-    <div className="bg-black-text text-black-text">
+    <div className="text-black-text">
       <Navbar
         view={{
           homeView: {

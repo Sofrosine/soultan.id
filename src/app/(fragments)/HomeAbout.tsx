@@ -39,7 +39,7 @@ const HomeAbout: ForwardRefRenderFunction<HTMLElement, Props> = (
   return (
     <section
       ref={ref}
-      className="flex flex-col-reverse md:grid md:grid-cols-12 h-[100vh] bg-black-text px-4 md:px-[2rem] lg:px-[7rem] overflow-hidden"
+      className="flex flex-col-reverse md:grid md:grid-cols-12 h-[100vh] bg-tertiary px-4 md:px-[2rem] lg:px-[7rem] overflow-hidden"
     >
       <div className="col-span-5 py-4 md:pt-0 h-1/2 md:h-auto flex flex-col justify-start md:justify-center">
         <FadeInSection type="fade-in-left">

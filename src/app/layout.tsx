@@ -49,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={clsx(lato.className, "bg-black-text")}>{children}</body>
+      <body className={clsx(lato.className)}>{children}</body>
     </html>
   );
 }
