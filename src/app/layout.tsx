@@ -12,13 +12,13 @@ const lato = Lato({
 });
 
 const META = {
-  title: "Soultan | Frontend Engineer",
+  title: "Soultan | Software Engineer",
   description:
-    "Your favorite Frontend Engineer with 4+ years experience & 20+ projects completed",
+    "Your favorite Software Engineer with 4+ years experience & 20+ projects completed",
   image:
     "https://instagram.fjog3-1.fna.fbcdn.net/v/t51.2885-19/369932123_1218921702835274_4484478325707841253_n.jpg?stp=dst-jpg_s320x320&_nc_ht=instagram.fjog3-1.fna.fbcdn.net&_nc_cat=102&_nc_ohc=Gf8X1RVCS9sAX_5wrT3&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfCdu2ZtgUWcUHsFc4ucCrnoAnuER56ONb64V5AeQY4vww&oe=65CD63CA&_nc_sid=8b3546",
   keywords:
-    "soultan,soultanid,soultan.id,soultan albar,soultan muhammad,soultan muhammad albar,soultan albar,sofrosine,programmer,frontend engineer",
+    "soultan,soultanid,soultan.id,soultan albar,soultan muhammad,soultan muhammad albar,soultan albar,sofrosine,programmer,software engineer",
 };
 
 export const metadata: Metadata = {

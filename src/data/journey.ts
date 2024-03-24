@@ -3,12 +3,12 @@ const JOURNEY: JourneyProps[] = [
     company: "Atech Solution",
     description: [
       "Work directly under client from Hong Kong",
-      "Develop & maintenance website with NextJS",
+      "Develop & maintenance website",
       "Collaborate with Frontend & Backend Engineer, QA Engineer and Product Manager with English language",
     ],
     duration: "Sept 2023 - now",
     logo: "/logos/l-atech.png",
-    role: "Senior Programmer (Frontend focused)",
+    role: "Senior Programmer",
     link: "https://www.atech.software",
   },
   {
