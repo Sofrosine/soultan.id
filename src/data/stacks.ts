@@ -1,5 +1,9 @@
 const STACKS: TopBarProps[] = [
   {
+    label: "React + Go",
+    value: "react-go",
+  },
+  {
     label: "React Native",
     value: "react-native",
   },

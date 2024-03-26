@@ -18,6 +18,41 @@ const PORTOFOLIOS: PortofolioProps[] = [
   //   link: "https://play.google.com/store/apps/details?id=com.dagangan.mall",
   // },
   {
+    main_stack: "react-go",
+    name: "IBHC 2024",
+    image: "/photos/p-ibhc2024.png",
+    created_at: "March 2024",
+    description:
+      "The website for INTERNATIONAL BIOETHICS & HUMANITIES CONFERENCE 2024 event by UNESCO + UGM",
+    stacks: [
+      "golang",
+      "mysql",
+      "typescript",
+      "nextjs",
+      "tailwindcss",
+      "docker",
+    ],
+    link: "https://www.ibhc2024.id/",
+  },
+  {
+    main_stack: "react-go",
+    name: "Solo Great Sale",
+    image: "/photos/p-sgs.png",
+    created_at: "September 2021, September 2022, September 2023",
+    description:
+      "Application to take part in the 2021, 2022 and 2023 Great Sale Solo event",
+    stacks: [
+      "golang",
+      "mysql",
+      "typescript",
+      "react native",
+      "docker",
+      "context api",
+      "firebase",
+    ],
+    link: "https://play.google.com/store/apps/details?id=com.sgsremake",
+  },
+  {
     main_stack: "react-next",
     name: "My Wedding Website",
     image: "/photos/p-ghinsoul.png",
@@ -129,16 +164,7 @@ const PORTOFOLIOS: PortofolioProps[] = [
     stacks: ["typescript", "react native", "recoil", "tailwind-rn", "firebase"],
     link: "https://play.google.com/store/apps/details?id=com.amazingforce",
   },
-  {
-    main_stack: "react-native",
-    name: "Solo Great Sale",
-    image: "/photos/p-sgs.png",
-    created_at: "September 2021, September 2022, September 2023",
-    description:
-      "Application to take part in the 2021, 2022 and 2023 Great Sale Solo event",
-    stacks: ["typescript", "react native", "context api", "firebase"],
-    link: "https://play.google.com/store/apps/details?id=com.sgsremake",
-  },
+
   {
     main_stack: "react-native",
     name: "Takenaka",

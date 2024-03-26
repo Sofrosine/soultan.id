@@ -11,7 +11,7 @@ interface PortofolioProps {
   description: string;
   stacks: string[];
   link?: string;
-  main_stack: "react-native" | "react-next" | "flutter";
+  main_stack: "react-go" | "react-native" | "react-next" | "flutter";
 }
 
 interface JourneyProps {
