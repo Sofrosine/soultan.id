@@ -11,10 +11,10 @@ const STACKS: TopBarProps[] = [
     label: "React/Next JS",
     value: "react-next",
   },
-  {
-    label: "Flutter",
-    value: "flutter",
-  },
+  // {
+  //   label: "Flutter",
+  //   value: "flutter",
+  // },
 ];
 
 export default STACKS;
