@@ -101,6 +101,32 @@ const PORTOFOLIOS: PortofolioProps[] = [
   },
   {
     main_stack: "react-native",
+    name: "Smartcart by ITC",
+    description:
+      "An application that we created to make it easier for International Test Center (ITC) customers to register for certification and purchase learning / training programs.",
+    created_at: "July 2022",
+    image: "/photos/p-itc.png",
+    link: "https://play.google.com/store/apps/details?id=com.smartcart.itc",
+    stacks: ["typescript", "react-native", "firebase", "codepush"],
+  },
+  {
+    main_stack: "react-native",
+    name: "MentorGue",
+    description:
+      "An application that provide books + audiobooks for users with subscribe plan feature",
+    created_at: "February 2023",
+    image: "/photos/p-mentorgue.png",
+    link: "https://play.google.com/store/apps/details?id=com.mentor.gue",
+    stacks: [
+      "typescript",
+      "react-native",
+      "firebase",
+      "trackplayer",
+      "codepush",
+    ],
+  },
+  {
+    main_stack: "react-native",
     name: "Tamamedi",
     image: "/photos/p-tamamedi.png",
     created_at: "September 2022",
@@ -179,26 +205,6 @@ const PORTOFOLIOS: PortofolioProps[] = [
       "redux saga",
       "firebase",
     ],
-  },
-  {
-    main_stack: "react-native",
-    name: "Smartcart by ITC",
-    description:
-      "An application that we created to make it easier for International Test Center (ITC) customers to register for certification and purchase learning / training programs.",
-    created_at: "July 2022",
-    image: "/photos/p-itc.png",
-    link: "https://play.google.com/store/apps/details?id=com.smartcart.itc",
-    stacks: ["typescript", "react-native", "firebase", "codepush"],
-  },
-  {
-    main_stack: "react-native",
-    name: "MentorGue",
-    description:
-      "An application that provide books + audiobooks for users with subscribe plan feature",
-    created_at: "February 2023",
-    image: "/photos/p-mentorgue.png",
-    link: "https://play.google.com/store/apps/details?id=com.mentor.gue",
-    stacks: ["typescript", "react-native", "firebase", "trackplayer", "codepush"],
   },
 ];
 
