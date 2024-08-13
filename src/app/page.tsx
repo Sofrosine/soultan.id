@@ -59,8 +59,8 @@ export default function Home() {
         />
         <HomePortofolio ref={portofolioRef} />
         <HomeJourney ref={journeyRef} />
-        <HomeBlog ref={blogRef} />
-        <HomeFyi ref={fyiRef} />
+        {/* <HomeBlog ref={blogRef} />
+        <HomeFyi ref={fyiRef} /> */}
       </main>
     </div>
   );

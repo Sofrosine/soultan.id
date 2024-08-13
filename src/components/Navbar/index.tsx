@@ -72,16 +72,16 @@ const Navbar: FC<Props> = ({ view }) => {
       link: "#journey",
       entry: journeyEntry,
     },
-    {
-      label: "blog",
-      link: "#blog",
-      entry: blogEntry,
-    },
-    {
-      label: "fyi",
-      link: "#fyi",
-      entry: fyiEntry,
-    },
+    // {
+    //   label: "blog",
+    //   link: "#blog",
+    //   entry: blogEntry,
+    // },
+    // {
+    //   label: "fyi",
+    //   link: "#fyi",
+    //   entry: fyiEntry,
+    // },
   ]);
   const [indicator, setIndicator] = useState<CSSProperties>();
 
