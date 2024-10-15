@@ -46,20 +46,29 @@ const HomeAbout: ForwardRefRenderFunction<HTMLElement, Props> = (
           <h1 className="text-primary z-50 text-headline-large font-bold md:text-display-medium lg:text-display-large mb-2">
             Software Engineer
           </h1>
-          <div className="text-title-medium z-50 lg:text-title-large italic text-secondary">
-            With highly organized and dedicated personality. Based in Sleman,
-            Indonesia
+          <div className="text-title-medium z-50 lg:text-title-large text-secondary">
+            {`With nearly 5 years of experience in software development, I’m
+known for being highly organized, responsible, and an effective
+team player. I've contributed to fast-paced environments,
+including pre-Series B startups, and have experience working
+with a major client from one of the biggest companies in Hong
+Kong. I’m dedicated to delivering quality outcomes across all
+stages of the product lifecycle.`}
           </div>
           <div className="flex-wrap gap-4 hidden md:flex md:gap-8 items-center text-secondary mt-8 md:mt-20">
             <div className="flex gap-2 items-center text-secondary animate-pulse">
-              <div className="text-headline-large md:458r0-ę00text-display-medium">4+</div>
+              <div className="text-headline-large md:458r0-ę00text-display-medium">
+                4+
+              </div>
               <div className="flex flex-col">
                 <div>YEARS</div>
                 <div>EXPERIENCE</div>
               </div>
             </div>
             <div className="flex gap-2 items-center text-secondary animate-pulse">
-              <div className="text-headline-large md:458r0-ę00text-display-medium">20+</div>
+              <div className="text-headline-large md:458r0-ę00text-display-medium">
+                20+
+              </div>
               <div className="flex flex-col">
                 <div>PROJECTS</div>
                 <div>COMPLETED</div>

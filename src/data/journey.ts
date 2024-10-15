@@ -2,9 +2,9 @@ const JOURNEY: JourneyProps[] = [
   {
     company: "Atech Solution",
     description: [
-      "Work directly under client from Hong Kong",
-      "Develop & maintenance website",
-      "Collaborate with Frontend & Backend Engineer, QA Engineer and Product Manager with English language",
+      "Develop and maintain critical security system, ensuring high reliability and secure authentication process with AWS Cognito and Lambda",
+      "Create and maintain comprehensive technical documentation, ensuring clear communication and alignment across development teams",
+      "Successfully delivered key projects including Authentication Security, Vulnerability Scanning, Log Search System, and CI CD template, driving business growth and product improvements especially on security part",
     ],
     duration: "Sept 2023 - now",
     logo: "/logos/l-atech.png",
@@ -14,12 +14,9 @@ const JOURNEY: JourneyProps[] = [
   {
     company: "Dagangan",
     description: [
-      "Develop Dagangan app for user with React Native",
-      "Optimize apps for faster performance",
-      "Make Unit Test",
-      "Analyze the best possible way to create an efficient feature",
-      "In charge for merging and build product to production",
-      "Collaborate with Frontend & Backend Engineer, QA Engineer and Product Manager",
+      "Developed and optimized Dagangan mobile application, ensuring high performance and seamless interaction",
+      "Led app deployment and production builds to Playstore",
+      "Successfully delivered key projects including Payment System, Event Tracking, Vulnerability Scanning, A/B Testing, In-App Update, etc, driving business growth and product improvements",
     ],
     duration: "Dec 2020 - Sept 2023",
     logo: "/logos/l-dagangan.png",

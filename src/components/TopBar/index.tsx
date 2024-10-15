@@ -7,7 +7,7 @@ interface Props {
 }
 
 const TopBar: FC<Props> = ({ data, onSelect }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(1);
 
   return (
     <div className="flex flex-row justify-center xl:justify-start border-b border-primary flex-1 overflow-scroll hide-scrollbar">
