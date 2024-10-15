@@ -46,7 +46,7 @@ const HomeAbout: ForwardRefRenderFunction<HTMLElement, Props> = (
           <h1 className="text-primary z-50 text-headline-large font-bold md:text-display-medium lg:text-display-large mb-2">
             Software Engineer
           </h1>
-          <div className="text-title-medium z-50 lg:text-title-large text-secondary">
+          <div className="text-title-small z-50 lg:text-title-large text-secondary">
             {`With nearly 5 years of experience in software development, I’m
 known for being highly organized, responsible, and an effective
 team player. I've contributed to fast-paced environments,
