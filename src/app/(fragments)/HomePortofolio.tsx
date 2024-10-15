@@ -16,7 +16,7 @@ const HomePortofolio: ForwardRefRenderFunction<HTMLElement, Props> = (
   props,
   ref
 ) => {
-  const [selectedVal, setSelectedVal] = useState(STACKS[0]?.value);
+  const [selectedVal, setSelectedVal] = useState(STACKS[1]?.value);
 
   const DATA_PORTOFOLIO = useMemo(() => {
     return PORTOFOLIOS?.filter((item) => item?.main_stack === selectedVal);
