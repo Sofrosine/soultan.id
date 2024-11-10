@@ -10,7 +10,12 @@ import React, {
 } from "react";
 
 type Props = {
-  type?: "fade-in-left" | "fade-in-right" | "fade-in-down" | "fade-in-up";
+  type?:
+    | "fade-in-left"
+    | "fade-in-right"
+    | "fade-in-down"
+    | "fade-in-up"
+    | "fade-in";
   children: ReactNode;
   className?: string;
 };
@@ -40,6 +45,8 @@ const FadeInSection: FC<Props> = (props) => {
         return "fade-in-down";
       case "fade-in-up":
         return "fade-in-up";
+      case "fade-in":
+        return "fade-in";
 
       default:
         return "fade-in-left";

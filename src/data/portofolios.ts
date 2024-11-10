@@ -35,31 +35,21 @@ const PORTOFOLIOS: PortofolioProps[] = [
     link: "https://www.ibhc2024.id/",
   },
   {
-    main_stack: "react-go",
-    name: "Solo Great Sale",
-    image: "/photos/p-sgs.png",
-    created_at: "September 2021, September 2022, September 2023",
+    main_stack: "react-native",
+    name: "MentorGue",
     description:
-      "Application to take part in the 2021, 2022 and 2023 Great Sale Solo event",
+      "An application that provide books + audiobooks for users with subscribe plan feature",
+    created_at: "February 2023",
+    image: "/photos/p-mentorgue.png",
+    link: "https://play.google.com/store/apps/details?id=com.mentor.gue",
     stacks: [
-      "golang",
-      "mysql",
       "typescript",
       "react native",
-      "docker",
-      "context api",
+      "node js",
       "firebase",
+      "trackplayer",
+      "codepush",
     ],
-    link: "https://play.google.com/store/apps/details?id=com.sgsremake",
-  },
-  {
-    main_stack: "react-next",
-    name: "My Wedding Website",
-    image: "/photos/p-ghinsoul.png",
-    created_at: "December 2023",
-    description: "My wedding website 😁",
-    stacks: ["typescript", "nextjs", "tailwindcss"],
-    link: "https://ghina.soultan.id/",
   },
   {
     main_stack: "react-next",
@@ -72,34 +62,6 @@ const PORTOFOLIOS: PortofolioProps[] = [
     link: "https://www.bikinacara.com/",
   },
   {
-    main_stack: "react-next",
-    name: "Edvisee",
-    image: "/photos/p-edvisee.png",
-    created_at: "Jan 2022",
-    description:
-      "A website application based on blockchain that has feature to show + apply jobs, also for user document management (Currently Inactive)",
-    stacks: ["typescript", "nextjs", "react query", "recoil"],
-    link: "https://edvisee.id/",
-  },
-  {
-    main_stack: "react-next",
-    name: "Akuntan Pribadiku",
-    image: "/photos/p-akuntanpribadi.png",
-    created_at: "November 2023",
-    description: "A landing page for Akuntan Pribadiku",
-    stacks: ["typescript", "nextjs", "tailwindcss"],
-    link: "https://www.akuntanpribadiku.com/",
-  },
-  {
-    main_stack: "react-next",
-    name: "Soulna Entertainment",
-    image: "/photos/p-soulna.png",
-    created_at: "Jan 2024",
-    description: "A landing page for Soulna Entertainment",
-    stacks: ["typescript", "nextjs", "tailwindcss"],
-    link: "https://soulna-entertaiment.vercel.app/",
-  },
-  {
     main_stack: "react-native",
     name: "Smartcart by ITC",
     description:
@@ -109,22 +71,7 @@ const PORTOFOLIOS: PortofolioProps[] = [
     link: "https://play.google.com/store/apps/details?id=com.smartcart.itc",
     stacks: ["typescript", "react-native", "firebase", "codepush"],
   },
-  {
-    main_stack: "react-native",
-    name: "MentorGue",
-    description:
-      "An application that provide books + audiobooks for users with subscribe plan feature",
-    created_at: "February 2023",
-    image: "/photos/p-mentorgue.png",
-    link: "https://play.google.com/store/apps/details?id=com.mentor.gue",
-    stacks: [
-      "typescript",
-      "react-native",
-      "firebase",
-      "trackplayer",
-      "codepush",
-    ],
-  },
+ 
   {
     main_stack: "react-native",
     name: "Tamamedi",
@@ -182,6 +129,24 @@ const PORTOFOLIOS: PortofolioProps[] = [
     ],
   },
   {
+    main_stack: "react-go",
+    name: "Solo Great Sale",
+    image: "/photos/p-sgs.png",
+    created_at: "September 2021, September 2022, September 2023",
+    description:
+      "Application to take part in the 2021, 2022 and 2023 Great Sale Solo event",
+    stacks: [
+      "golang",
+      "mysql",
+      "typescript",
+      "react native",
+      "docker",
+      "context api",
+      "firebase",
+    ],
+    link: "https://play.google.com/store/apps/details?id=com.sgsremake",
+  },
+  {
     main_stack: "react-native",
     name: "Amazing Force",
     image: "/photos/p-amazing.png",
@@ -190,7 +155,6 @@ const PORTOFOLIOS: PortofolioProps[] = [
     stacks: ["typescript", "react native", "recoil", "tailwind-rn", "firebase"],
     link: "https://play.google.com/store/apps/details?id=com.amazingforce",
   },
-
   {
     main_stack: "react-native",
     name: "Takenaka",
@@ -205,6 +169,43 @@ const PORTOFOLIOS: PortofolioProps[] = [
       "redux saga",
       "firebase",
     ],
+  },
+  {
+    main_stack: "react-next",
+    name: "My Wedding Website",
+    image: "/photos/p-ghinsoul.png",
+    created_at: "December 2023",
+    description: "My wedding website 😁",
+    stacks: ["typescript", "nextjs", "tailwindcss"],
+    link: "https://ghina.soultan.id/",
+  },
+  {
+    main_stack: "react-next",
+    name: "Edvisee",
+    image: "/photos/p-edvisee.png",
+    created_at: "Jan 2022",
+    description:
+      "A website application based on blockchain that has feature to show + apply jobs, also for user document management (Currently Inactive)",
+    stacks: ["typescript", "nextjs", "react query", "recoil"],
+    link: "https://edvisee.id/",
+  },
+  {
+    main_stack: "react-next",
+    name: "Akuntan Pribadiku",
+    image: "/photos/p-akuntanpribadi.png",
+    created_at: "November 2023",
+    description: "A landing page for Akuntan Pribadiku",
+    stacks: ["typescript", "nextjs", "tailwindcss"],
+    link: "https://www.akuntanpribadiku.com/",
+  },
+  {
+    main_stack: "react-next",
+    name: "Soulna Entertainment",
+    image: "/photos/p-soulna.png",
+    created_at: "Jan 2024",
+    description: "A landing page for Soulna Entertainment",
+    stacks: ["typescript", "nextjs", "tailwindcss"],
+    link: "https://soulna-entertaiment.vercel.app/",
   },
 ];
 

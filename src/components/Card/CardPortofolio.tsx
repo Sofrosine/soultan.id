@@ -9,10 +9,10 @@ interface Props {
 const CardPortofolio: FC<Props> = ({ item }) => {
   return (
     <div className="grid grid-cols-12 gap-6">
-      <div className="relative col-span-12 xl:col-span-6 h-[18rem] md:h-[26rem] shadow-md rounded-2xl overflow-hidden">
+      <div className="relative col-span-12 h-[18rem] md:h-[26rem] shadow-md rounded-2xl overflow-hidden">
         <Image className="object-cover" fill alt="" src={item?.image!} />
       </div>
-      <div className="pt-4 pb-6 col-span-12 xl:col-span-6 flex flex-col justify-between gap-8">
+      <div className="pt-0 pb-6 col-span-12 flex flex-col justify-between gap-8">
         <div className="flex flex-col">
           {item?.logo ? (
             <div className="relative h-[32px] w-[240px]">

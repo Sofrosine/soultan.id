@@ -42,22 +42,20 @@ const HomeAbout: ForwardRefRenderFunction<HTMLElement, Props> = (
       className="flex flex-col-reverse md:grid md:grid-cols-12 h-[100vh] bg-tertiary px-4 md:px-[2rem] lg:px-[7rem] overflow-hidden"
     >
       <div className="col-span-5 py-4 md:pt-0 h-1/2 md:h-auto flex flex-col justify-start md:justify-center">
-        <FadeInSection type="fade-in-left">
+        <FadeInSection type="fade-in">
           <h1 className="text-primary z-50 text-headline-large font-bold md:text-display-medium lg:text-display-large mb-2">
             Software Engineer
           </h1>
           <div className="text-title-small z-50 lg:text-title-large text-secondary">
-            {`With nearly 5 years of experience in software development, I’m
-known for being highly organized, responsible, and an effective
-team player. I've contributed to fast-paced environments,
+            {`I've contributed to fast-paced environments,
 including pre-Series B startups, and have experience working
 with a major client from one of the biggest companies in Hong
 Kong. I’m dedicated to delivering quality outcomes across all
 stages of the product lifecycle.`}
           </div>
-          <div className="flex-wrap gap-4 hidden md:flex md:gap-8 items-center text-secondary mt-8 md:mt-20">
+          <div className="flex-wrap gap-4 flex md:gap-8 items-center text-secondary mt-8 md:mt-20">
             <div className="flex gap-2 items-center text-secondary animate-pulse">
-              <div className="text-headline-large md:458r0-ę00text-display-medium">
+              <div className="text-headline-large md:text-display-medium">
                 4+
               </div>
               <div className="flex flex-col">
@@ -66,7 +64,7 @@ stages of the product lifecycle.`}
               </div>
             </div>
             <div className="flex gap-2 items-center text-secondary animate-pulse">
-              <div className="text-headline-large md:458r0-ę00text-display-medium">
+              <div className="text-headline-large md:text-display-medium">
                 20+
               </div>
               <div className="flex flex-col">

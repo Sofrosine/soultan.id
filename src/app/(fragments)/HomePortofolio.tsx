@@ -19,7 +19,8 @@ const HomePortofolio: ForwardRefRenderFunction<HTMLElement, Props> = (
   const [selectedVal, setSelectedVal] = useState(STACKS[1]?.value);
 
   const DATA_PORTOFOLIO = useMemo(() => {
-    return PORTOFOLIOS?.filter((item) => item?.main_stack === selectedVal);
+    // return PORTOFOLIOS?.filter((item) => item?.main_stack === selectedVal);
+    return PORTOFOLIOS
   }, [selectedVal]);
 
   return (
@@ -34,19 +35,20 @@ const HomePortofolio: ForwardRefRenderFunction<HTMLElement, Props> = (
             My Freelance <span className="font-bold">Portofolio</span>
           </h2>
         </div>
-        <div className="flex flex-1 pb-2 md:px-[2rem]">
+        {/* <div className="flex flex-1 pb-2 md:px-[2rem]">
           <TopBar
             data={STACKS}
             onSelect={(item) => setSelectedVal(item?.value)}
           />
-        </div>
+        </div> */}
       </div>
-      <div className="flex flex-col pt-8 gap-6 px-4 md:px-[2rem]">
+      <div className="grid grid-cols-12 pt-8 gap-6 px-4 md:px-[2rem]">
         {DATA_PORTOFOLIO?.map((item, i) => {
           return (
             <FadeInSection
-              type={i % 2 ? "fade-in-left" : "fade-in-right"}
+              type={"fade-in"}
               key={item?.name}
+              className="col-span-12 md:col-span-6 2xl:col-span-4"
             >
               <CardPortofolio item={item} />
             </FadeInSection>

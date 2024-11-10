@@ -13,7 +13,7 @@ const HomeJourney: ForwardRefRenderFunction<HTMLElement, Props> = (
     <section ref={ref} className="bg-tertiary pt-[3.85rem] min-h-screen">
       <div className="grid grid-cols-12">
         <div className="col-span-12 xl:col-span-3 bg-primary h-full xl:h-1/3 py-[1.71rem] px-[2.28rem] text-headline-medium md:text-display-medium text-tertiary">
-          <FadeInSection type="fade-in-left">
+          <FadeInSection type="fade-in">
             <h3 className="font-normal">The</h3>
             <h3 className="font-bold">Journey</h3>
           </FadeInSection>
@@ -24,7 +24,7 @@ const HomeJourney: ForwardRefRenderFunction<HTMLElement, Props> = (
               return (
                 <div key={item?.company} className="flex ">
                   <div className="text-body-medium text-secondary mt-2 hidden md:block w-[30%] text-end">
-                    <FadeInSection type="fade-in-left">
+                    <FadeInSection type="fade-in">
                       {item?.duration}
                     </FadeInSection>
                   </div>
@@ -35,7 +35,7 @@ const HomeJourney: ForwardRefRenderFunction<HTMLElement, Props> = (
                     />
                   </div>
                   <div className="md:w-[50%]">
-                    <FadeInSection type="fade-in-right">
+                    <FadeInSection type="fade-in">
                       <CardJourney key={item?.company} item={item} />
                     </FadeInSection>
                   </div>
