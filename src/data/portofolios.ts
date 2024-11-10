@@ -62,6 +62,16 @@ const PORTOFOLIOS: PortofolioProps[] = [
     link: "https://www.bikinacara.com/",
   },
   {
+    main_stack: "react-next",
+    name: "Batik Senowati",
+    image: "/photos/p-senowati.png",
+    created_at: "October 2024",
+    description:
+      "A website of online party planner so user able to plan their agenda easier",
+    stacks: ["typescript", "nextjs", "golang", "mysql", "docker", "midtrans"],
+    link: "https://senowati-fe.vercel.app/",
+  },
+  {
     main_stack: "react-native",
     name: "Smartcart by ITC",
     description:
@@ -71,7 +81,7 @@ const PORTOFOLIOS: PortofolioProps[] = [
     link: "https://play.google.com/store/apps/details?id=com.smartcart.itc",
     stacks: ["typescript", "react-native", "firebase", "codepush"],
   },
- 
+
   {
     main_stack: "react-native",
     name: "Tamamedi",
