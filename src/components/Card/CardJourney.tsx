@@ -15,7 +15,8 @@ const CardJourney: FC<Props> = ({ item }) => {
           item?.logo?.includes("atech") && "w-[160px] h-[48px]",
           item?.logo?.includes("dagangan") && "w-[200px] h-[48px]",
           item?.logo?.includes("gomodo") && "w-[140px] h-[48px]",
-          item?.logo?.includes("fazztrack") && "w-[200px] h-[48px] bg-white"
+          item?.logo?.includes("fazztrack") && "w-[200px] h-[48px] bg-white",
+          item?.logo?.includes("hyperhire") && "w-[200px] h-[48px]",
         )}
       >
         <Image

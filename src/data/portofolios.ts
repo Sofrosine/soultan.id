@@ -1,22 +1,19 @@
 const PORTOFOLIOS: PortofolioProps[] = [
-  // {
-  //   main_stack: "react-native",
-  //   name: "Dagangan",
-  //   image: "/photos/p-dagangan.png",
-  //   logo: "/logos/l-dagangan.png",
-  //   created_at: "December 2020",
-  //   description:
-  //     "Mobile Application that has purpose to help rural society for buying their daily needs, so they don't have to close their store / go out from home",
-  //   stacks: [
-  //     "typescript",
-  //     "react native",
-  //     "redux",
-  //     "context api",
-  //     "firebase",
-  //     "codepush",
-  //   ],
-  //   link: "https://play.google.com/store/apps/details?id=com.dagangan.mall",
-  // },
+  {
+    main_stack: "react-go",
+    name: "Gaia Safari",
+    image: "/photos/p-gaia.jpeg",
+    created_at: "Nov 2024",
+    description:
+        "Gaia Safari website.",
+    stacks: [
+      "nuxt",
+      "typescript",
+      "storyblok api",
+      "tailwindcss",
+    ],
+    link: "https://www.gaiasafaris.com/",
+  },
   {
     main_stack: "react-go",
     name: "IBHC 2024",
@@ -61,16 +58,7 @@ const PORTOFOLIOS: PortofolioProps[] = [
     stacks: ["typescript", "nextjs", "react query", "recoil", "firebase"],
     link: "https://www.bikinacara.com/",
   },
-  {
-    main_stack: "react-next",
-    name: "Batik Senowati",
-    image: "/photos/p-senowati.png",
-    created_at: "October 2024",
-    description:
-      "A website of online party planner so user able to plan their agenda easier",
-    stacks: ["typescript", "nextjs", "golang", "mysql", "docker", "midtrans"],
-    link: "https://senowati-fe.vercel.app/",
-  },
+
   {
     main_stack: "react-native",
     name: "Smartcart by ITC",
@@ -179,6 +167,16 @@ const PORTOFOLIOS: PortofolioProps[] = [
       "redux saga",
       "firebase",
     ],
+  },
+  {
+    main_stack: "react-next",
+    name: "Batik Senowati",
+    image: "/photos/p-senowati.png",
+    created_at: "October 2024",
+    description:
+        "A website of online party planner so user able to plan their agenda easier",
+    stacks: ["typescript", "nextjs", "golang", "mysql", "docker", "midtrans"],
+    link: "https://senowati-fe.vercel.app/",
   },
   {
     main_stack: "react-next",

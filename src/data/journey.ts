@@ -1,12 +1,24 @@
 const JOURNEY: JourneyProps[] = [
   {
+    company: "Hyperhire",
+    description: [
+      "Develop and maintain clients websites to ensure optimal user experience and performance.",
+      "Collaborate closely with design and backend teams to implement features and deliver seamless functionality.",
+      "Continuously refine and improve the website based on user feedback and performance metrics.",
+    ],
+    duration: "Nov 2024 - now",
+    logo: "/logos/l-hyperhire.png",
+    role: "Frontend Developer",
+    link: "https://hyperhire.in/en",
+  },
+  {
     company: "Atech Solution",
     description: [
       "Develop and maintain critical security system, ensuring high reliability and secure authentication process with AWS Cognito and Lambda",
       "Create and maintain comprehensive technical documentation, ensuring clear communication and alignment across development teams",
       "Successfully delivered key projects including Authentication Security, Vulnerability Scanning, Log Search System, and CI CD template, driving business growth and product improvements especially on security part",
     ],
-    duration: "Sept 2023 - now",
+    duration: "Sept 2023 - Dec 2024",
     logo: "/logos/l-atech.png",
     role: "Senior Programmer",
     link: "https://www.atech.software",
