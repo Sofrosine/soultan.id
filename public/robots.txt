@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://soultan.id/sitemap.xml
+Sitemap: https://www.soultan.id/sitemap.xml
