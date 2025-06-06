@@ -16,7 +16,7 @@ export default function Projects() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">My Projects</h1>
           <div className="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
           <p className="text-lg text-gray-700 dark:text-gray-300">
-            Explore a selection of my recent work and personal projects.
+            Explore a selection of my outside-fulltime work.
           </p>
         </div>
 
