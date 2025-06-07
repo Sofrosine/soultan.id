@@ -3,7 +3,7 @@ import { projects } from '@/lib/data';
 import { blogPosts } from '@/lib/data';
 import { formatDateForSitemap, getCurrentDate } from '@/utils/date';
 
-const baseUrl = 'https://www.soultanmuhammad.com';
+const baseUrl = 'https://soultan.id';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const currentDate = getCurrentDate();

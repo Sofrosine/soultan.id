@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 // Define your website URL
-const baseUrl = 'https://www.soultanmuhammad.com'; // Replace with your actual domain
+const baseUrl = 'https://soultan.id'; // Replace with your actual domain
 
 export default function robots(): MetadataRoute.Robots {
     return {

@@ -7,9 +7,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   const socialLinks = [
-    { name: 'GitHub', url: 'https://github.com/soultandev' },
-    { name: 'LinkedIn', url: 'https://linkedin.com/in/soultanmuhammad' },
-    { name: 'Twitter', url: 'https://twitter.com/soultandev' },
+    { name: 'GitHub', url: 'https://github.com/sofrosine' },
+    { name: 'LinkedIn', url: 'https://linkedin.com/in/soultanma' },
+    { name: 'Instagram', url: 'https://instagram.com/soultan.muh' },
   ];
 
   return (

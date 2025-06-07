@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Soultan Muhammad Albar | Software Engineer',
         description: 'Personal portfolio of Soultan Muhammad Albar, a Software Engineer with 5+ years of experience',
-        url: 'https://soultanmuhammad.com',
+        url: 'https://soultan.id',
         siteName: 'Soultan Muhammad Albar',
         images: [
             {
