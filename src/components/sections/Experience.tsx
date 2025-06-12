@@ -5,14 +5,16 @@ import {useInView} from 'react-intersection-observer';
 
 const experiences = [
     {
-        title: 'Frontend Engineer (Coming soon)',
+        title: 'Frontend Engineer',
         company: 'Gani.ai',
         companyUrl: 'https://www.gani.ai',
         location: 'Indonesia (Remote)',
         type: 'Contract',
         duration: 'Jun 2025 - Present',
         description: [
-            'Develop Gani.ai website'
+            'Developed and maintained the frontend of Gani.ai, a specialized legal AI platform featuring an intelligent chatbot for legal consultations and guidance.',
+            'Built responsive and intuitive user interfaces using React.js to deliver seamless interactions between users and the AI-powered legal assistant.',
+            'Collaborated with Backend & AI teams to integrate legal AI capabilities into the web platform, ensuring accurate and accessible legal information delivery.'
         ],
         tech: ['React.js'],
     },

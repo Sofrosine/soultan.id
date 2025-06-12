@@ -41,7 +41,7 @@ export const projects: Project[] = [
             'Mobile-optimized experience for all guests'
         ],
         challenges: 'Creating a website that balanced aesthetic appeal with functionality while ensuring it loaded quickly on mobile networks during the event required careful optimization of assets and responsive design implementation.',
-        lastModified: '2025-06-07',
+        lastModified: '2025-06-12',
     },
     {
         title: 'Sekula Indonesia',
@@ -60,7 +60,7 @@ export const projects: Project[] = [
             'Compliance with Indonesian educational regulations and standards'
         ],
         challenges: 'Developing a system that could accommodate the diverse needs of various educational institutions while ensuring compliance with Indonesian regulations required extensive research and stakeholder interviews. Additionally, creating a scalable architecture that could handle large volumes of data while maintaining performance across different regions with varying internet connectivity presented significant technical challenges. I implemented a modular design with careful database optimization and offline-first capabilities to ensure reliability in all usage scenarios.',
-        lastModified: '2025-06-07',
+        lastModified: '2025-06-12',
     },
     {
         title: 'IBHC 2024',
@@ -77,7 +77,7 @@ export const projects: Project[] = [
             'Dockerized deployment for consistent environments'
         ],
         challenges: 'Creating a system that could handle high traffic during registration periods while ensuring data security for an international academic event required careful architecture planning. I implemented database optimizations and caching strategies to maintain performance under load.',
-        lastModified: '2025-06-07',
+        lastModified: '2025-06-12',
     },
     {
         title: 'MentorGue',
@@ -94,7 +94,7 @@ export const projects: Project[] = [
             'Over-the-air updates via CodePush for quick iterations'
         ],
         challenges: 'Implementing a reliable audio player that worked consistently across different device models while managing background playback and audio controls was technically challenging. I utilized TrackPlayer with custom hooks to create a robust audio experience.',
-        lastModified: '2025-06-07',
+        lastModified: '2025-06-12',
     },
     {
         title: 'Hellocaddy',
@@ -110,7 +110,7 @@ export const projects: Project[] = [
             'Digital scorecard and performance tracking'
         ],
         challenges: 'Implementing reliable Bluetooth connectivity across various device models while maintaining a smooth user experience required extensive testing and optimization. Additionally, integrating with multiple APIs for course data and payment processing required careful error handling and state management.',
-        lastModified: '2025-06-07',
+        lastModified: '2025-06-12',
     },
     {
         title: 'Fakultas Kedokteran Trisakti Mobile App',
@@ -124,7 +124,7 @@ export const projects: Project[] = [
             'Comprehensive evaluation system for supervisors to assess student performance',
         ],
         challenges: 'Developing a system that adhered to strict medical education standards while creating an intuitive interface for both busy medical students and clinical supervisors required extensive domain research and user testing. Additionally, ensuring patient data privacy and compliance with healthcare regulations presented significant challenges. I implemented a secure architecture with robust encryption and careful access controls while maintaining responsive performance on various mobile devices used in clinical settings.',
-        lastModified: '2025-06-07',
+        lastModified: '2025-06-12',
     },
     {
         title: 'Smartcart by ITC',
@@ -141,7 +141,7 @@ export const projects: Project[] = [
             'Push notifications for exam dates and results'
         ],
         challenges: "Creating a reliable system that could handle different certification types and their specific requirements while maintaining data integrity between the app and ITC's backend systems required careful API design and robust error handling.",
-        lastModified: '2025-06-07',
+        lastModified: '2025-06-12',
     },
     {
         title: 'Gaia Safari',
@@ -158,7 +158,7 @@ export const projects: Project[] = [
             'Performance optimization for image-heavy content'
         ],
         challenges: 'Managing the complex integration with Storyblok CMS while maintaining fast load times for high-resolution imagery was challenging. I implemented lazy loading and image optimization strategies to deliver a seamless user experience despite the content-rich nature of the site.',
-        lastModified: '2025-06-07',
+        lastModified: '2025-06-12',
     },
     {
         title: 'Bikin Acara',
@@ -175,7 +175,7 @@ export const projects: Project[] = [
             'Event timeline creation and management'
         ],
         challenges: 'Balancing complex state management across multiple planning features while maintaining performance was a significant challenge. I implemented Recoil with React Query to create a responsive application that could handle complex state requirements without sacrificing user experience.',
-        lastModified: '2025-06-07',
+        lastModified: '2025-06-12',
     },
     {
         title: 'Tamamedi',
@@ -192,7 +192,7 @@ export const projects: Project[] = [
             'Study planning and scheduling tools'
         ],
         challenges: 'Designing an architecture that could support the complex testing formats required for different medical specialties while providing accurate performance analytics was technically demanding. I implemented custom rendering engines for different question types and a flexible scoring system.',
-        lastModified: '2025-06-07',
+        lastModified: '2025-06-12',
     },
 
     {
@@ -209,7 +209,7 @@ export const projects: Project[] = [
             'QR code generation for facility access and verification'
         ],
         challenges: 'Creating a business application that balanced comprehensive management features with ease of use for non-technical staff was challenging. I focused on intuitive UX design while still providing the powerful functionality needed by business users.',
-        lastModified: '2025-06-07',
+        lastModified: '2025-06-12',
     },
     {
         title: 'Golden Mulia',
@@ -225,7 +225,7 @@ export const projects: Project[] = [
             'Wishlist and favorites functionality'
         ],
         challenges: 'Creating a secure platform for high-value transactions while maintaining real-time price updates based on fluctuating gold markets required careful architecture planning. I implemented a combination of server validation and client-side checks to ensure transaction security.',
-        lastModified: '2025-06-07',
+        lastModified: '2025-06-12',
     },
     {
         title: 'Solo Great Sale',
@@ -242,7 +242,7 @@ export const projects: Project[] = [
             'Merchant dashboard for promotion management'
         ],
         challenges: 'Scaling the application to handle traffic spikes during the festival period while maintaining consistent performance across three years of events required continuous architecture improvements. I implemented backend optimizations and caching strategies to support growing user numbers each year.',
-        lastModified: '2025-06-07',
+        lastModified: '2025-06-12',
     },
     {
         title: 'Amazing Force',
@@ -259,7 +259,7 @@ export const projects: Project[] = [
             'Financial health indicators and recommendations'
         ],
         challenges: 'Creating intuitive data visualizations for complex financial information while ensuring data privacy and security presented significant challenges. I implemented custom chart components and secure local storage strategies to address these concerns.',
-        lastModified: '2025-06-07',
+        lastModified: '2025-06-12',
     },
     {
         title: 'Takenaka',
@@ -275,7 +275,7 @@ export const projects: Project[] = [
             'Deadline management and notifications'
         ],
         challenges: 'Building an internal tool that satisfied both staff and management requirements with different permission levels and workflows required careful UX planning. I implemented role-based access controls and customizable views to address the diverse needs of different user types.',
-        lastModified: '2025-06-07',
+        lastModified: '2025-06-12',
     },
     {
         title: 'Batik Senowati',
@@ -292,7 +292,7 @@ export const projects: Project[] = [
             'Educational content about batik traditions'
         ],
         challenges: 'Implementing a system that could handle custom orders with variations in batik patterns while integrating with the Midtrans payment gateway required careful API design and robust validation logic.',
-        lastModified: '2025-06-07',
+        lastModified: '2025-06-12',
     },
     {
         title: 'Edvisee',
@@ -309,7 +309,7 @@ export const projects: Project[] = [
             'Employer dashboard for applicant management'
         ],
         challenges: 'Implementing blockchain integration for document verification while maintaining an intuitive user experience for non-technical users required careful abstraction of complex blockchain concepts behind a simple interface.',
-        lastModified: '2025-06-07',
+        lastModified: '2025-06-12',
     },
     {
         title: 'Akuntan Pribadiku',
@@ -326,7 +326,7 @@ export const projects: Project[] = [
             'Responsive design with modern animations'
         ],
         challenges: 'Creating a professional site that effectively communicated complex accounting services to potential clients required careful UX planning and content organization to present technical information in an accessible way.',
-        lastModified: '2025-06-07',
+        lastModified: '2025-06-12',
     },
     {
         title: 'Soulna Entertainment',
@@ -343,7 +343,7 @@ export const projects: Project[] = [
             'Testimonials from previous clients'
         ],
         challenges: 'Optimizing media-rich content for fast loading while maintaining high visual quality required implementing advanced lazy loading strategies and next-generation image formats.',
-        lastModified: '2025-06-07',
+        lastModified: '2025-06-12',
     },
 ];
 
@@ -358,6 +358,6 @@ export const blogPosts: BlogPost[] = [
         coverImage: '/images/blog/typescript-advanced.jpg',
         tags: ['TypeScript', 'JavaScript', 'Web Development'],
         content: `<p>This is a placeholder for the full blog post content about TypeScript advanced types and patterns.</p>`,
-        lastModified: '2025-06-07', // This could be the same as the publication date
+        lastModified: '2025-06-12', // This could be the same as the publication date
     },
 ];
