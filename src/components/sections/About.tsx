@@ -2,8 +2,10 @@
 
 import {motion} from 'framer-motion';
 import {useInView} from 'react-intersection-observer';
+import {getYearsOfExperience} from '@/lib/experience';
 
 const About = () => {
+    const yearsOfExperience = getYearsOfExperience();
     const [ref, inView] = useInView({
         triggerOnce: true,
         threshold: 0.1,
@@ -32,7 +34,7 @@ const About = () => {
                     >
                         <h3 className="text-2xl font-bold mb-4">Who I Am</h3>
                         <p className="text-gray-700 dark:text-gray-300 mb-4">
-                            {"With 5 years of experience in product development, I've contributed to dynamic, fast-paced environments—including pre-Series B startups—and have successfully collaborated with clients from Hong Kong and South Korea."}
+                            {`With ${yearsOfExperience} years of experience in product development, I've contributed to dynamic, fast-paced environments—including pre-Series B startups—and have successfully collaborated with clients from Hong Kong and South Korea.`}
                         </p>
                         <p className="text-gray-700 dark:text-gray-300 mb-4">
                             {"As a software engineer, I've delivered numerous projects using technologies like Next.js, React.js, React Native and Golang, following best practices across the entire product lifecycle."}

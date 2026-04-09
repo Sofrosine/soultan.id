@@ -3,8 +3,10 @@
 import {motion} from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import {getYearsOfExperience} from '@/lib/experience';
 
 const Hero = () => {
+    const yearsOfExperience = getYearsOfExperience();
     return (
         <section className="min-h-screen flex items-center py-20 px-4 relative overflow-hidden">
             {/* Background gradient */}
@@ -50,7 +52,7 @@ const Hero = () => {
                             <span className="text-blue-600 dark:text-blue-500">Soultan Muhammad Albar</span>
                         </h1>
                         <h2 className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-6">
-                            Software Engineer with 5+ years experience
+                            Software Engineer with {yearsOfExperience}+ years experience
                         </h2>
                         <p className="text-gray-700 dark:text-gray-300 mb-8 max-w-lg">
                             I build exceptional digital experiences with cutting-edge technologies.
