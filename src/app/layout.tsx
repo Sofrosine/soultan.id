@@ -3,16 +3,18 @@ import {Inter} from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import {getYearsOfExperience} from '@/lib/experience';
 
 const inter = Inter({subsets: ['latin']});
+const yearsOfExperience = getYearsOfExperience();
 
 export const metadata: Metadata = {
     title: 'Soultan Muhammad Albar | Software Engineer',
-    description: 'Personal portfolio of Soultan Muhammad Albar, a Software Engineer with 5+ years of experience',
+    description: `Personal portfolio of Soultan Muhammad Albar, a Software Engineer with ${yearsOfExperience}+ years of experience`,
     keywords: 'software engineer, next.js, typescript, react, portfolio',
     openGraph: {
         title: 'Soultan Muhammad Albar | Software Engineer',
-        description: 'Personal portfolio of Soultan Muhammad Albar, a Software Engineer with 5+ years of experience',
+        description: `Personal portfolio of Soultan Muhammad Albar, a Software Engineer with ${yearsOfExperience}+ years of experience`,
         url: 'https://soultan.id',
         siteName: 'Soultan Muhammad Albar',
         images: [
@@ -29,7 +31,7 @@ export const metadata: Metadata = {
     twitter: {
         card: 'summary_large_image',
         title: 'Soultan Muhammad Albar | Software Engineer',
-        description: 'Personal portfolio of Soultan Muhammad Albar, a Software Engineer with 5+ years of experience',
+        description: `Personal portfolio of Soultan Muhammad Albar, a Software Engineer with ${yearsOfExperience}+ years of experience`,
         images: ['/images/og-image.jpg'],
     },
     robots: {
