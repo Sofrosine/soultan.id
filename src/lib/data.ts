@@ -45,7 +45,7 @@ export const projects: Project[] = [
     {
         title: 'infonih',
         slug: 'infonih',
-        description: 'A self-hosted personal AI news digest delivered via Telegram. Polls a curated set of RSS feeds, uses Claude (Haiku 4.5) to score each article against the user’s interests, and ships a focused 5–7 item daily summary at 7 AM local time. Single-user-first, hexagonal architecture in ~3.5k LoC, runs on a $4/month VPS at ~$10–15/month total cost.',
+        description: 'A self-hosted personal AI news digest delivered via Telegram. Polls a curated set of RSS feeds, uses Claude (Haiku 4.5) to score each article against the user’s interests, and ships a focused 5–7 item daily summary at 7 AM local time. Single-user-first, hexagonal architecture in ~3.5k LoC.',
         image: '/images/portofolio/p-infonih.png',
         technologies: ['Python', 'Claude (Anthropic SDK)', 'PostgreSQL', 'pgvector', 'SQLAlchemy', 'APScheduler', 'python-telegram-bot', 'Docker'],
         github: 'https://github.com/Sofrosine/infonih',
