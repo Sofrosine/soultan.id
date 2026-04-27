@@ -1,5 +1,4 @@
-// Add lastModified date to project and blog interfaces
-interface Project {
+export interface Project {
     title: string;
     slug?: string;
     description: string;
@@ -9,10 +8,12 @@ interface Project {
     demo?: string;
     features?: string[];
     challenges?: string;
-    lastModified?: string; // New field for sitemap
+    year: string;
+    kind: string;
+    lastModified?: string;
 }
 
-interface BlogPost {
+export interface BlogPost {
     title: string;
     slug: string;
     date: string;
@@ -21,9 +22,24 @@ interface BlogPost {
     coverImage: string;
     tags: string[];
     content: string;
-    lastModified?: string; // New field for sitemap
+    lastModified?: string;
 }
 
+export interface Experience {
+    title: string;
+    company: string;
+    companyUrl?: string;
+    location: string;
+    type: string;
+    duration: string;
+    description: string[];
+    tech: string[];
+}
+
+export interface SkillGroup {
+    group: string;
+    items: string[];
+}
 
 export const projects: Project[] = [
     {
@@ -41,7 +57,8 @@ export const projects: Project[] = [
             'Mobile-optimized experience for all guests'
         ],
         challenges: 'Creating a website that balanced aesthetic appeal with functionality while ensuring it loaded quickly on mobile networks during the event required careful optimization of assets and responsive design implementation.',
-        lastModified: '2025-06-12',
+        year: '2025', kind: 'Personal',
+        lastModified: '2026-04-27',
     },
     {
         title: 'Sekula Indonesia',
@@ -60,7 +77,8 @@ export const projects: Project[] = [
             'Compliance with Indonesian educational regulations and standards'
         ],
         challenges: 'Developing a system that could accommodate the diverse needs of various educational institutions while ensuring compliance with Indonesian regulations required extensive research and stakeholder interviews. Additionally, creating a scalable architecture that could handle large volumes of data while maintaining performance across different regions with varying internet connectivity presented significant technical challenges. I implemented a modular design with careful database optimization and offline-first capabilities to ensure reliability in all usage scenarios.',
-        lastModified: '2025-06-12',
+        year: '2024', kind: 'SaaS',
+        lastModified: '2026-04-27',
     },
     {
         title: 'IBHC 2024',
@@ -77,7 +95,8 @@ export const projects: Project[] = [
             'Dockerized deployment for consistent environments'
         ],
         challenges: 'Creating a system that could handle high traffic during registration periods while ensuring data security for an international academic event required careful architecture planning. I implemented database optimizations and caching strategies to maintain performance under load.',
-        lastModified: '2025-06-12',
+        year: '2024', kind: 'Conference',
+        lastModified: '2026-04-27',
     },
     {
         title: 'MentorGue',
@@ -94,7 +113,8 @@ export const projects: Project[] = [
             'Over-the-air updates via CodePush for quick iterations'
         ],
         challenges: 'Implementing a reliable audio player that worked consistently across different device models while managing background playback and audio controls was technically challenging. I utilized TrackPlayer with custom hooks to create a robust audio experience.',
-        lastModified: '2025-06-12',
+        year: '2023', kind: 'Mobile',
+        lastModified: '2026-04-27',
     },
     {
         title: 'Hellocaddy',
@@ -110,7 +130,8 @@ export const projects: Project[] = [
             'Digital scorecard and performance tracking'
         ],
         challenges: 'Implementing reliable Bluetooth connectivity across various device models while maintaining a smooth user experience required extensive testing and optimization. Additionally, integrating with multiple APIs for course data and payment processing required careful error handling and state management.',
-        lastModified: '2025-06-12',
+        year: '2023', kind: 'Mobile',
+        lastModified: '2026-04-27',
     },
     {
         title: 'Fakultas Kedokteran Trisakti Mobile App',
@@ -124,7 +145,8 @@ export const projects: Project[] = [
             'Comprehensive evaluation system for supervisors to assess student performance',
         ],
         challenges: 'Developing a system that adhered to strict medical education standards while creating an intuitive interface for both busy medical students and clinical supervisors required extensive domain research and user testing. Additionally, ensuring patient data privacy and compliance with healthcare regulations presented significant challenges. I implemented a secure architecture with robust encryption and careful access controls while maintaining responsive performance on various mobile devices used in clinical settings.',
-        lastModified: '2025-06-12',
+        year: '2023', kind: 'Mobile',
+        lastModified: '2026-04-27',
     },
     {
         title: 'Smartcart by ITC',
@@ -141,7 +163,8 @@ export const projects: Project[] = [
             'Push notifications for exam dates and results'
         ],
         challenges: "Creating a reliable system that could handle different certification types and their specific requirements while maintaining data integrity between the app and ITC's backend systems required careful API design and robust error handling.",
-        lastModified: '2025-06-12',
+        year: '2022', kind: 'Mobile',
+        lastModified: '2026-04-27',
     },
     {
         title: 'Gaia Safari',
@@ -158,7 +181,8 @@ export const projects: Project[] = [
             'Performance optimization for image-heavy content'
         ],
         challenges: 'Managing the complex integration with Storyblok CMS while maintaining fast load times for high-resolution imagery was challenging. I implemented lazy loading and image optimization strategies to deliver a seamless user experience despite the content-rich nature of the site.',
-        lastModified: '2025-06-12',
+        year: '2022', kind: 'Web',
+        lastModified: '2026-04-27',
     },
     {
         title: 'Bikin Acara',
@@ -175,7 +199,8 @@ export const projects: Project[] = [
             'Event timeline creation and management'
         ],
         challenges: 'Balancing complex state management across multiple planning features while maintaining performance was a significant challenge. I implemented Recoil with React Query to create a responsive application that could handle complex state requirements without sacrificing user experience.',
-        lastModified: '2025-06-12',
+        year: '2022', kind: 'Web',
+        lastModified: '2026-04-27',
     },
     {
         title: 'Tamamedi',
@@ -192,9 +217,9 @@ export const projects: Project[] = [
             'Study planning and scheduling tools'
         ],
         challenges: 'Designing an architecture that could support the complex testing formats required for different medical specialties while providing accurate performance analytics was technically demanding. I implemented custom rendering engines for different question types and a flexible scoring system.',
-        lastModified: '2025-06-12',
+        year: '2022', kind: 'Mobile',
+        lastModified: '2026-04-27',
     },
-
     {
         title: 'Hellocaddy Biz',
         slug: 'hellocaddy-biz',
@@ -209,7 +234,8 @@ export const projects: Project[] = [
             'QR code generation for facility access and verification'
         ],
         challenges: 'Creating a business application that balanced comprehensive management features with ease of use for non-technical staff was challenging. I focused on intuitive UX design while still providing the powerful functionality needed by business users.',
-        lastModified: '2025-06-12',
+        year: '2022', kind: 'Mobile',
+        lastModified: '2026-04-27',
     },
     {
         title: 'Golden Mulia',
@@ -225,7 +251,8 @@ export const projects: Project[] = [
             'Wishlist and favorites functionality'
         ],
         challenges: 'Creating a secure platform for high-value transactions while maintaining real-time price updates based on fluctuating gold markets required careful architecture planning. I implemented a combination of server validation and client-side checks to ensure transaction security.',
-        lastModified: '2025-06-12',
+        year: '2021', kind: 'Mobile',
+        lastModified: '2026-04-27',
     },
     {
         title: 'Solo Great Sale',
@@ -242,7 +269,8 @@ export const projects: Project[] = [
             'Merchant dashboard for promotion management'
         ],
         challenges: 'Scaling the application to handle traffic spikes during the festival period while maintaining consistent performance across three years of events required continuous architecture improvements. I implemented backend optimizations and caching strategies to support growing user numbers each year.',
-        lastModified: '2025-06-12',
+        year: '2021', kind: 'Mobile',
+        lastModified: '2026-04-27',
     },
     {
         title: 'Amazing Force',
@@ -259,7 +287,8 @@ export const projects: Project[] = [
             'Financial health indicators and recommendations'
         ],
         challenges: 'Creating intuitive data visualizations for complex financial information while ensuring data privacy and security presented significant challenges. I implemented custom chart components and secure local storage strategies to address these concerns.',
-        lastModified: '2025-06-12',
+        year: '2021', kind: 'Mobile',
+        lastModified: '2026-04-27',
     },
     {
         title: 'Takenaka',
@@ -275,7 +304,8 @@ export const projects: Project[] = [
             'Deadline management and notifications'
         ],
         challenges: 'Building an internal tool that satisfied both staff and management requirements with different permission levels and workflows required careful UX planning. I implemented role-based access controls and customizable views to address the diverse needs of different user types.',
-        lastModified: '2025-06-12',
+        year: '2021', kind: 'Mobile',
+        lastModified: '2026-04-27',
     },
     {
         title: 'Batik Senowati',
@@ -292,7 +322,8 @@ export const projects: Project[] = [
             'Educational content about batik traditions'
         ],
         challenges: 'Implementing a system that could handle custom orders with variations in batik patterns while integrating with the Midtrans payment gateway required careful API design and robust validation logic.',
-        lastModified: '2025-06-12',
+        year: '2021', kind: 'Web',
+        lastModified: '2026-04-27',
     },
     {
         title: 'Edvisee',
@@ -309,7 +340,8 @@ export const projects: Project[] = [
             'Employer dashboard for applicant management'
         ],
         challenges: 'Implementing blockchain integration for document verification while maintaining an intuitive user experience for non-technical users required careful abstraction of complex blockchain concepts behind a simple interface.',
-        lastModified: '2025-06-12',
+        year: '2021', kind: 'Web',
+        lastModified: '2026-04-27',
     },
     {
         title: 'Akuntan Pribadiku',
@@ -326,7 +358,8 @@ export const projects: Project[] = [
             'Responsive design with modern animations'
         ],
         challenges: 'Creating a professional site that effectively communicated complex accounting services to potential clients required careful UX planning and content organization to present technical information in an accessible way.',
-        lastModified: '2025-06-12',
+        year: '2020', kind: 'Web',
+        lastModified: '2026-04-27',
     },
     {
         title: 'Soulna Entertainment',
@@ -343,11 +376,118 @@ export const projects: Project[] = [
             'Testimonials from previous clients'
         ],
         challenges: 'Optimizing media-rich content for fast loading while maintaining high visual quality required implementing advanced lazy loading strategies and next-generation image formats.',
-        lastModified: '2025-06-12',
+        year: '2020', kind: 'Web',
+        lastModified: '2026-04-27',
     },
 ];
 
 export default projects;
+
+export const experiences: Experience[] = [
+    {
+        title: 'Frontend Engineer',
+        company: 'Gani.ai',
+        companyUrl: 'https://gani.ai',
+        location: 'Indonesia (Remote)',
+        type: 'Contract',
+        duration: 'Jun 2025 — Present',
+        description: [
+            'Developed and maintained the frontend of Gani.ai, a specialized legal AI platform featuring an intelligent chatbot for legal consultations and guidance.',
+            'Built responsive and intuitive user interfaces using React.js to deliver seamless interactions between users and the AI-powered legal assistant.',
+            'Collaborated with Backend & AI teams to integrate legal AI capabilities into the web platform, ensuring accurate and accessible legal information delivery.',
+        ],
+        tech: ['React.js'],
+    },
+    {
+        title: 'Senior Frontend Engineer',
+        company: 'Yindjin Genggam Bersama',
+        companyUrl: 'https://www.yindjin.tech',
+        location: 'Indonesia (Remote)',
+        type: 'Part-time',
+        duration: 'Jan 2025 — Present',
+        description: [
+            'Developed and enhanced XL Axiata internal web platforms using Next.js to ensure smooth user interactions and performance.',
+            'Implemented CI/CD pipelines for automated deployments on AWS CloudFront & S3 using GitLab CI and Docker.',
+            'Collaborated closely with design and backend teams to bring new features to life seamlessly.',
+        ],
+        tech: ['Next.js', 'AWS CloudFront', 'S3', 'GitLab CI', 'Docker'],
+    },
+    {
+        title: 'Frontend Engineer',
+        company: 'Hyperhire',
+        companyUrl: 'https://www.hyperhire.in',
+        location: 'Seoul, South Korea (Remote)',
+        type: 'Contract',
+        duration: 'Nov 2024 — Apr 2025',
+        description: [
+            'Maintained and improved a Reddit-like web platform for clients, delivering optimal user experience with Next.js.',
+            'Worked hand-in-hand with designers and backend developers to ensure polished feature rollouts.',
+            'Constantly iterated and optimized based on user feedback and performance insights.',
+        ],
+        tech: ['Next.js', 'React', 'TypeScript', 'UI/UX', 'Performance'],
+    },
+    {
+        title: 'Senior Programmer',
+        company: 'ATech Solution Limited',
+        companyUrl: 'https://www.atech.software',
+        location: 'Hong Kong (Remote)',
+        type: 'Contract',
+        duration: 'Sep 2023 — Dec 2024',
+        description: [
+            'Built and secured critical systems using AWS Cognito and Lambda for reliable authentication and data protection.',
+            'Authored clear technical documentation to maintain team alignment and transparency.',
+            'Delivered essential security-driven projects, including Authentication Systems, Vulnerability Scanning, Log Search Engines, and CI/CD templates.',
+        ],
+        tech: ['AWS Cognito', 'Lambda', 'Security', 'Documentation', 'CI/CD'],
+    },
+    {
+        title: 'Mobile Engineer',
+        company: 'Dagangan Indonesia',
+        companyUrl: 'https://www.dagangan.com',
+        location: 'Yogyakarta (Remote)',
+        type: 'Full-time',
+        duration: 'Dec 2020 — Oct 2023',
+        description: [
+            'Led development and performance optimization for Dagangan mobile app using React Native.',
+            'Spearheaded app deployment to the Google Play Store.',
+            'Rolled out impactful features such as Payment Integration, Event Tracking, Vulnerability Scanning, A/B Testing, and In-App Updates.',
+        ],
+        tech: ['React Native', 'Play Store', 'Payments', 'A/B Testing', 'Tracking'],
+    },
+    {
+        title: 'Freelance Software Engineer',
+        company: 'Self-employed',
+        location: 'Remote',
+        type: 'Project-based',
+        duration: 'Apr 2020 — Present',
+        description: [
+            'Partnered with diverse clients to design and build custom web and mobile applications using Next.js, Nuxt.js, React Native, and Go.',
+            'Managed full project cycles—from requirement gathering, development, to deployment—implementing CI/CD workflows with Docker and GitHub Actions.',
+        ],
+        tech: ['Next.js', 'Nuxt.js', 'React Native', 'Go', 'Docker', 'GitHub Actions'],
+    },
+    {
+        title: 'Mobile Engineer',
+        company: 'Gomodo Technologies',
+        location: 'Yogyakarta',
+        type: 'Full-time',
+        duration: 'Feb 2020 — Nov 2020',
+        description: [
+            'Contributed to frontend feature development, maintaining user-centric web products for B2B e-commerce clients.',
+        ],
+        tech: ['React Native', 'Next.js', 'TypeScript'],
+    },
+];
+
+export const skillGroups: SkillGroup[] = [
+    { group: 'Frameworks', items: ['Next.js', 'Nuxt.js', 'React', 'React Native', 'Node.js'] },
+    { group: 'Languages', items: ['TypeScript', 'JavaScript', 'Golang', 'Python'] },
+    { group: 'AI / LLM', items: ['LangGraph', 'LangChain', 'RAG pipelines', 'Vector DBs', 'OpenAI / Anthropic APIs'] },
+    { group: 'Data', items: ['MySQL', 'PostgreSQL', 'MongoDB', 'Redis', 'Elasticsearch', 'RabbitMQ'] },
+    { group: 'Infra', items: ['AWS', 'Docker', 'Kubernetes', 'CI/CD'] },
+    { group: 'Practice', items: ['Agile/Scrum', 'TDD', 'Clean Architecture', 'REST API'] },
+];
+
 export const blogPosts: BlogPost[] = [
     {
         title: 'Mastering TypeScript: Advanced Types and Patterns',
@@ -357,7 +497,15 @@ export const blogPosts: BlogPost[] = [
         excerpt: 'Explore advanced TypeScript features like conditional types, mapped types, and utility types to write more robust and maintainable code.',
         coverImage: '/images/blog/typescript-advanced.jpg',
         tags: ['TypeScript', 'JavaScript', 'Web Development'],
-        content: `<p>This is a placeholder for the full blog post content about TypeScript advanced types and patterns.</p>`,
-        lastModified: '2025-06-12', // This could be the same as the publication date
+        content: `<p>TypeScript stops being just <em>JavaScript with types</em> the moment you start writing types that <em>do work</em>. This post is a tour of the patterns I reach for most often when designing library APIs and shared internal utilities.</p>
+<h2>1. Conditional types as control flow</h2>
+<p>Conditional types let you branch on the shape of a generic. They behave like a tiny pure language inside the type system — and once you start treating them that way, the standard library's <code>Pick</code>, <code>Omit</code>, <code>ReturnType</code> all stop feeling like magic.</p>
+<h2>2. Mapped types for transformation</h2>
+<p>Mapped types iterate over the keys of a type. Combine them with <code>as</code> remapping and you can rename, filter, or fully restructure a type in a single declaration.</p>
+<h2>3. Template literal types for the API surface</h2>
+<p>If your library accepts strings shaped like <code>"on:click"</code> or <code>"user.profile.name"</code>, you can encode the grammar in the type system instead of relying on runtime validation.</p>
+<h2>Closing</h2>
+<p>The point of all of this isn't cleverness — it's that a well-typed API teaches the next person how to use it without them ever opening the docs.</p>`,
+        lastModified: '2026-04-27',
     },
 ];

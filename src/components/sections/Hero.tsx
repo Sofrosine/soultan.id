@@ -1,106 +1,134 @@
 'use client';
 
-import {motion} from 'framer-motion';
-import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import {getYearsOfExperience} from '@/lib/experience';
+import Link from 'next/link';
+import Reveal from '@/components/Reveal';
+import { getYearsOfExperience } from '@/lib/experience';
+import { projects } from '@/lib/data';
+
+const ROLES = ['Frontend Engineer', 'Mobile Engineer', 'Full-stack Builder', 'Product Engineer', 'AI Engineer'];
+const STACK_MARQUEE = [
+    'Next.js', 'React Native', 'TypeScript', 'Golang', 'PostgreSQL', 'RabbitMQ',
+    'Docker', 'AWS', 'Kubernetes', 'CI/CD', 'Redis', 'GraphQL', 'Storyblok', 'Firebase', 'Stripe', 'Midtrans',
+];
 
 const Hero = () => {
-    const yearsOfExperience = getYearsOfExperience();
+    const years = getYearsOfExperience();
+    const [idx, setIdx] = useState(0);
+    const [text, setText] = useState('');
+    const [del, setDel] = useState(false);
+
+    useEffect(() => {
+        const target = ROLES[idx];
+        const speed = del ? 40 : 75;
+        const t = setTimeout(() => {
+            if (!del) {
+                if (text.length < target.length) setText(target.slice(0, text.length + 1));
+                else setTimeout(() => setDel(true), 1400);
+            } else {
+                if (text.length > 0) setText(target.slice(0, text.length - 1));
+                else { setDel(false); setIdx((idx + 1) % ROLES.length); }
+            }
+        }, speed);
+        return () => clearTimeout(t);
+    }, [text, del, idx]);
+
     return (
-        <section className="min-h-screen flex items-center py-20 px-4 relative overflow-hidden">
-            {/* Background gradient */}
-            <div
-                className="absolute inset-0 bg-gradient-to-br from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 -z-10"/>
+        <section className="hero">
+            <div className="hero-meta mono">
+                <span>—  Personal Index  /  v2.0</span>
+                <span className="hero-meta-spacer" />
+                <span className="dim">Yogyakarta · ID  ·  GMT+7  ·  Available now</span>
+            </div>
 
-            {/* Animated background shapes */}
-            <motion.div
-                className="absolute top-20 right-10 w-64 h-64 rounded-full bg-blue-200 dark:bg-blue-900/20 blur-3xl -z-5"
-                animate={{
-                    x: [0, 30, 0],
-                    y: [0, 40, 0],
-                }}
-                transition={{
-                    duration: 15,
-                    repeat: Infinity,
-                    repeatType: "reverse"
-                }}
-            />
-            <motion.div
-                className="absolute bottom-20 left-10 w-72 h-72 rounded-full bg-purple-200 dark:bg-purple-900/20 blur-3xl -z-5"
-                animate={{
-                    x: [0, -30, 0],
-                    y: [0, -40, 0],
-                }}
-                transition={{
-                    duration: 18,
-                    repeat: Infinity,
-                    repeatType: "reverse"
-                }}
-            />
+            <div className="hero-grid">
+                <div className="hero-left">
+                    <Reveal as="div" className="hero-tagline mono">
+                        <span className="dot" /> Open to new opportunities
+                    </Reveal>
 
-            <div className="container mx-auto">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-                    <motion.div
-                        className="md:w-1/2"
-                        initial={{opacity: 0, y: 20}}
-                        animate={{opacity: 1, y: 0}}
-                        transition={{duration: 0.8}}
-                    >
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                            <span className="block">{"Hi, I'm "}</span>
-                            <span className="text-blue-600 dark:text-blue-500">Soultan Muhammad Albar</span>
-                        </h1>
-                        <h2 className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-6">
-                            Software Engineer with {yearsOfExperience}+ years experience
-                        </h2>
-                        <p className="text-gray-700 dark:text-gray-300 mb-8 max-w-lg">
-                            I build exceptional digital experiences with cutting-edge technologies.
-                            {" Let's bring your ideas to life with clean, efficient, and scalable solutions."}</p>
-                        <div className="flex flex-wrap gap-4">
-                            <motion.div whileHover={{scale: 1.05}} whileTap={{scale: 0.95}}>
-                                <Link
-                                    href="/projects"
-                                    className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
-                                >
-                                    View My Work
-                                </Link>
-                            </motion.div>
-                            <motion.div whileHover={{scale: 1.05}} whileTap={{scale: 0.95}}>
-                                <Link
-                                    href="#contact"
-                                    className="px-6 py-3 border border-blue-600 text-blue-600 dark:border-blue-500 dark:text-blue-500 rounded-lg font-medium hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
-                                >
-                                    Contact Me
-                                </Link>
-                            </motion.div>
+                    <Reveal as="h1" className="hero-h" delay={80}>
+                        <span className="hero-line">Soultan</span>
+                        <span className="hero-line">Muhammad</span>
+                        <span className="hero-line">
+                            <em className="serif-it">Albar</em>
+                            <span className="hero-amp">.</span>
+                        </span>
+                    </Reveal>
+
+                    <Reveal as="div" className="hero-role" delay={220}>
+                        <span className="mono dim">role&nbsp;=</span>
+                        <span className="role-text">{text}</span>
+                        <span className="caret" />
+                    </Reveal>
+
+                    <Reveal className="hero-lede" delay={320}>
+                        <p>
+                            I build durable, well-typed software for teams that have to ship — across web,
+                            mobile, and the awkward bits in between. {years} years spanning startups in
+                            Yogyakarta, contracts in Hong Kong &amp; Seoul, and the freelance work that keeps
+                            the rest honest.
+                        </p>
+                    </Reveal>
+
+                    <Reveal className="hero-cta" delay={420}>
+                        <Link className="btn-prim" href="/projects">
+                            Browse work →
+                        </Link>
+                        <Link className="btn-ghost" href="/contact">
+                            Start a conversation
+                        </Link>
+                    </Reveal>
+                </div>
+
+                <div className="hero-right">
+                    <Reveal className="hero-card" delay={150}>
+                        <div className="hero-card-img">
+                            <Image
+                                src="/images/profile.JPG"
+                                alt="Soultan Muhammad Albar"
+                                fill
+                                priority
+                                sizes="(max-width: 920px) 100vw, 40vw"
+                            />
                         </div>
-                    </motion.div>
-
-                    <motion.div
-                        className="md:w-1/2 flex justify-center"
-                        initial={{opacity: 0, scale: 0.8}}
-                        animate={{opacity: 1, scale: 1}}
-                        transition={{duration: 0.8, delay: 0.2}}
-                    >
-                        <div className="relative w-72 h-72 md:w-96 md:h-96">
-                            <div
-                                className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 blur-xl opacity-20 animate-pulse"/>
-                            <div
-                                className="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-xl">
-                                {/* Replace with your own image */}
-                                <Image
-                                    src="/images/profile.jpeg"
-                                    alt="Soultan Muhammad Albar"
-                                    fill
-                                    className="object-cover"
-                                    priority
-                                />
-                            </div>
+                        <div className="hero-card-meta mono">
+                            <span>file ↳ profile.JPG</span>
+                            <span>1240×1654</span>
                         </div>
-                    </motion.div>
+                    </Reveal>
+
+                    <Reveal className="hero-stats" delay={300}>
+                        <div className="stat">
+                            <div className="stat-n">{years}+</div>
+                            <div className="stat-l mono">Years shipping software</div>
+                        </div>
+                        <div className="stat">
+                            <div className="stat-n">{projects.length}</div>
+                            <div className="stat-l mono">Projects shipped</div>
+                        </div>
+                        <div className="stat">
+                            <div className="stat-n">3</div>
+                            <div className="stat-l mono">Countries collaborated with</div>
+                        </div>
+                    </Reveal>
                 </div>
             </div>
+
+            <Reveal className="hero-marquee" delay={500}>
+                <div className="marquee-track">
+                    {[0, 1].map((j) => (
+                        <div className="marquee-row" key={j}>
+                            {STACK_MARQUEE.map((t, i) => (
+                                <span className="marq-item" key={`${j}-${i}`}>
+                                    <span className="marq-dot" />{t}
+                                </span>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+            </Reveal>
         </section>
     );
 };

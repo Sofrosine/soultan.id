@@ -1,4 +1,4 @@
-const CAREER_START = new Date(2020, 1); // February 2020
+const CAREER_START = new Date(2020, 1);
 
 export function getYearsOfExperience(): number {
     const now = new Date();
