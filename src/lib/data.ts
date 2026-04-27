@@ -43,6 +43,26 @@ export interface SkillGroup {
 
 export const projects: Project[] = [
     {
+        title: 'infonih',
+        slug: 'infonih',
+        description: 'A self-hosted personal AI news digest delivered via Telegram. Polls a curated set of RSS feeds, uses Claude (Haiku 4.5) to score each article against the user’s interests, and ships a focused 5–7 item daily summary at 7 AM local time. Single-user-first, hexagonal architecture in ~3.5k LoC, runs on a $4/month VPS at ~$10–15/month total cost.',
+        image: '/images/portofolio/p-infonih.png',
+        technologies: ['Python', 'Claude (Anthropic SDK)', 'PostgreSQL', 'pgvector', 'SQLAlchemy', 'APScheduler', 'python-telegram-bot', 'Docker'],
+        github: 'https://github.com/Sofrosine/infonih',
+        features: [
+            'RSS polling with race-safe three-outcome upsert (insert / source-appended / duplicate) in a single SQL statement',
+            'LLM scoring against a versioned interests profile — updating interests re-grades only stale rows',
+            'Structured Claude outputs validated with Pydantic schemas at the API boundary',
+            'DB-driven scheduler reconciled every 60s — add / pause / remove sources from Telegram with no restart',
+            'Two-process deploy (scheduler + bot worker) sharing one Postgres, both built from one Dockerfile',
+            'Telegram-only interface by design — no web dashboard, no public ports, no domain, no TLS',
+            '~71% test coverage against a real Postgres test database (no SQLAlchemy mocking)',
+        ],
+        challenges: 'Designing for one specific user under a fixed monthly cost ceiling forced every architectural decision: no multi-tenancy, no web dashboard, no embedding-based dedup in v1. The hexagonal layout (domain Protocols separate from Postgres adapters) keeps the LLM and Telegram concerns swappable behind one file each, so a future move to a local model or a different chat platform stays contained. The scoring loop also needed a versioned interests field so updating interests via Telegram re-grades only stale rows rather than the whole table.',
+        year: '2026', kind: 'AI / LLM',
+        lastModified: '2026-04-27',
+    },
+    {
         title: 'My Wedding Website',
         slug: 'wedding-website',
         description: 'A personal wedding website created to share event details, collect RSVPs, and showcase photos. Built with Next.js and TailwindCSS, this project combines aesthetic design with practical functionality for wedding guests.',

@@ -59,6 +59,14 @@ export default async function ProjectDetailPage({ params }: Props) {
                             </a>
                         </>
                     )}
+                    {project.github && (
+                        <>
+                            <span className="sep">·</span>
+                            <a href={project.github} target="_blank" rel="noreferrer" className="ulink">
+                                source ↗
+                            </a>
+                        </>
+                    )}
                 </Reveal>
             </div>
 
@@ -93,6 +101,11 @@ export default async function ProjectDetailPage({ params }: Props) {
                     {project.demo && (
                         <a className="btn-prim btn-block" href={project.demo} target="_blank" rel="noreferrer">
                             Visit live site →
+                        </a>
+                    )}
+                    {project.github && (
+                        <a className="btn-ghost btn-block" href={project.github} target="_blank" rel="noreferrer">
+                            View source on GitHub ↗
                         </a>
                     )}
                 </aside>
