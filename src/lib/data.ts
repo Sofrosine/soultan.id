@@ -501,7 +501,7 @@ export const experiences: Experience[] = [
 
 export const skillGroups: SkillGroup[] = [
     { group: 'Frameworks', items: ['Next.js', 'Nuxt.js', 'React', 'React Native', 'Node.js'] },
-    { group: 'Languages', items: ['TypeScript', 'JavaScript', 'Golang', 'Python'] },
+    { group: 'Languages', items: ['TypeScript', 'JavaScript', 'Golang', 'Java', 'Python'] },
     { group: 'AI / LLM', items: ['LangGraph', 'LangChain', 'RAG pipelines', 'Vector DBs', 'OpenAI / Anthropic APIs'] },
     { group: 'Data', items: ['MySQL', 'PostgreSQL', 'MongoDB', 'Redis', 'Elasticsearch', 'RabbitMQ'] },
     { group: 'Infra', items: ['AWS', 'Docker', 'Kubernetes', 'CI/CD'] },
