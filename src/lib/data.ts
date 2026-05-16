@@ -447,7 +447,7 @@ export const experiences: Experience[] = [
         tech: ['Next.js', 'React', 'TypeScript', 'UI/UX', 'Performance'],
     },
     {
-        title: 'Senior Programmer',
+        title: 'Senior Software Engineer',
         company: 'ATech Solution Limited',
         companyUrl: 'https://www.atech.software',
         location: 'Hong Kong (Remote)',
