@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import Reveal from '@/components/Reveal';
+import StormShell from '@/components/storm/StormShell';
 import { blogPosts } from '@/lib/data';
 
 type Props = {
@@ -36,35 +36,41 @@ export default async function BlogDetail({ params }: Props) {
     if (!post) notFound();
 
     return (
-        <section className="page detail post-detail">
-            <div className="page-head">
-                <div className="mono dim crumbs">
+        <StormShell>
+            <div className="sp-doc">
+                <div className="sp-crumb">
                     <Link href="/blog">Writing</Link>
-                    {' / '}<span>{post.slug}</span>
+                    {' / '}
+                    <span>{post.slug}</span>
                 </div>
-                <Reveal as="div" className="post-d-meta mono" delay={40}>
+                <div className="sp-doc-meta">
                     <span>{post.date}</span>
                     <span className="sep">·</span>
                     <span>{post.readTime} min read</span>
                     <span className="sep">·</span>
                     {post.tags.map((t) => (
-                        <span key={t} className="tag tag-inline">{t}</span>
+                        <span key={t} className="st-chip">
+                            {t}
+                        </span>
                     ))}
-                </Reveal>
-                <Reveal as="h1" className="post-d-h" delay={120}>
-                    {post.title}<em className="serif-it">.</em>
-                </Reveal>
-                <Reveal className="post-d-author mono dim" delay={200}>
+                </div>
+                <h1 className="sp-doc-h">
+                    {post.title}
+                    <em>.</em>
+                </h1>
+                <div className="sp-doc-meta" style={{ marginTop: 4 }}>
                     by Soultan Muhammad Albar
-                </Reveal>
-            </div>
+                </div>
 
-            <article className="post-d-body" dangerouslySetInnerHTML={{ __html: post.content }} />
+                <article className="sp-article" dangerouslySetInnerHTML={{ __html: post.content }} />
 
-            <div className="post-d-end">
-                <span className="mono dim">— end —</span>
-                <Link className="btn-ghost" href="/blog">← All writing</Link>
+                <div className="sp-docnav">
+                    <span />
+                    <Link className="sp-btn sp-btn-ghost" href="/blog">
+                        ← All writing
+                    </Link>
+                </div>
             </div>
-        </section>
+        </StormShell>
     );
 }

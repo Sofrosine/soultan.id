@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Reveal from '@/components/Reveal';
+import StormShell from '@/components/storm/StormShell';
 import { blogPosts } from '@/lib/data';
 
 export const metadata: Metadata = {
@@ -10,52 +10,53 @@ export const metadata: Metadata = {
 
 export default function BlogIndex() {
     return (
-        <section className="page">
-            <div className="page-head">
-                <div className="mono dim crumbs">Index / <span>Writing</span></div>
-                <Reveal as="h1" className="page-h">
-                    Notes on <em className="serif-it">building</em> things.
-                </Reveal>
-                <Reveal className="page-lede" delay={120}>
-                    <p>
-                        Occasional essays on TypeScript, React Native, and the boring infrastructure that
-                        keeps shipped products alive. New posts arrive when there&apos;s something actually
-                        worth saying.
+        <StormShell>
+            <div className="sp-wrap">
+                <div className="sp-head">
+                    <div className="sp-crumb">
+                        Index / <span>Writing</span>
+                    </div>
+                    <h1 className="sp-title">
+                        Notes on <em>building</em> things.
+                    </h1>
+                    <p className="sp-lede">
+                        Occasional essays on TypeScript, React Native, and the boring infrastructure that keeps
+                        shipped products alive. New posts arrive when there&apos;s something actually worth saying.
                     </p>
-                </Reveal>
-            </div>
+                </div>
 
-            <div className="blog-list">
-                {blogPosts.map((p, i) => (
-                    <Reveal key={p.slug} delay={i * 80}>
-                        <Link className="post-row" href={`/blog/${p.slug}`}>
-                            <div className="post-meta mono">
+                <div className="sp-posts">
+                    {blogPosts.map((p) => (
+                        <Link key={p.slug} className="sp-post" href={`/blog/${p.slug}`}>
+                            <div className="sp-post-meta">
                                 <span>{p.date}</span>
                                 <span className="sep">·</span>
                                 <span>{p.readTime} min read</span>
                             </div>
-                            <h2 className="post-title">{p.title}</h2>
-                            <p className="post-excerpt">{p.excerpt}</p>
-                            <div className="post-tags">
-                                {p.tags.map((t) => <span className="tag" key={t}>{t}</span>)}
-                                <span className="post-read">Read →</span>
+                            <h2 className="sp-post-title">{p.title}</h2>
+                            <p className="sp-post-ex">{p.excerpt}</p>
+                            <div className="sp-post-tags">
+                                {p.tags.map((t) => (
+                                    <span className="st-chip" key={t}>
+                                        {t}
+                                    </span>
+                                ))}
+                                <span className="sp-post-read">Read →</span>
                             </div>
                         </Link>
-                    </Reveal>
-                ))}
-                <div className="post-row post-row-coming">
-                    <div className="post-meta mono">
-                        <span>— soon</span>
+                    ))}
+                    <div className="sp-post sp-post-soon">
+                        <div className="sp-post-meta">
+                            <span>— soon</span>
+                        </div>
+                        <h2 className="sp-post-title">More notes in progress.</h2>
+                        <p className="sp-post-ex">
+                            React Native CodePush in production · designing CI/CD templates · what I learned from
+                            migrating MobX to Recoil. Drafts in the editor.
+                        </p>
                     </div>
-                    <h2 className="post-title dim">
-                        <em className="serif-it">More notes in progress.</em>
-                    </h2>
-                    <p className="post-excerpt dim">
-                        React Native CodePush in production · designing CI/CD templates · what I learned from
-                        migrating Mobx to Recoil. Drafts in the editor.
-                    </p>
                 </div>
             </div>
-        </section>
+        </StormShell>
     );
 }

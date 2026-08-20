@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
-import ContactView from './ContactView';
+import StormShell from '@/components/storm/StormShell';
+import ContactStorm from '@/components/storm/pages/ContactStorm';
 
 export const metadata: Metadata = {
     title: 'Contact | Soultan Muhammad Albar',
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-    return <ContactView />;
+    return (
+        <StormShell>
+            <ContactStorm />
+        </StormShell>
+    );
 }

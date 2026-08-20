@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
-import ProjectsIndex from './ProjectsIndex';
+import StormShell from '@/components/storm/StormShell';
+import ProjectsStorm from '@/components/storm/pages/ProjectsStorm';
 
 export const metadata: Metadata = {
     title: 'Work | Soultan Muhammad Albar',
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
-    return <ProjectsIndex />;
+    return (
+        <StormShell>
+            <ProjectsStorm />
+        </StormShell>
+    );
 }
