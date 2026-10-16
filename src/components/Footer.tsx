@@ -7,7 +7,7 @@ const Footer = () => {
                     <div className="footer-col footer-col-wide">
                         <div className="footer-mark">Soultan.id</div>
                         <p className="footer-tag">
-                            Building durable web &amp; mobile products. Currently shipping platform work for XL Axiata via{' '}
+                            Building durable web &amp; mobile products. Currently working at{' '}
                             <a href="https://www.yindjin.tech" target="_blank" rel="noreferrer">Yindjin</a>.
                         </p>
                     </div>
