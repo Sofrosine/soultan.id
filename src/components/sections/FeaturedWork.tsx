@@ -1,28 +1,38 @@
 import ProjectMedia from '@/components/ProjectMedia';
 import Link from 'next/link';
 import Reveal from '@/components/Reveal';
+import RichText from '@/components/RichText';
 import SectionLabel from '@/components/SectionLabel';
-import { projects } from '@/lib/data';
+import type { Dictionary } from '@/i18n';
+import { localePath, type Locale } from '@/i18n/config';
+import type { Project } from '@/lib/data';
 
-const FeaturedWork = () => {
+type Props = {
+    lang: Locale;
+    t: Dictionary['featured'];
+    kinds: Record<string, string>;
+    projects: Project[];
+};
+
+const FeaturedWork = ({ lang, t, kinds, projects }: Props) => {
     const featured = projects.slice(0, 4);
     return (
         <section className="featured">
             <SectionLabel
                 num="04"
-                kicker="Selected Work"
-                title={<>Recent <em className="serif-it">things</em> I shipped.</>}
+                kicker={t.kicker}
+                title={<RichText value={t.title} />}
                 lede={
                     <>
-                        Four highlights from {projects.length} total — full archive in{' '}
-                        <Link className="ulink" href="/projects">Work</Link>.
+                        {t.ledeBefore(projects.length)}
+                        <Link className="ulink" href={localePath(lang, '/projects')}>{t.ledeLink}</Link>.
                     </>
                 }
             />
             <div className="feat-grid">
                 {featured.map((p, i) => (
                     <Reveal key={p.slug} delay={i * 80}>
-                        <Link className="feat-card" href={p.slug ? `/projects/${p.slug}` : '/projects'}>
+                        <Link className="feat-card" href={localePath(lang, p.slug ? `/projects/${p.slug}` : '/projects')}>
                             <div className="feat-card-img">
                                 <ProjectMedia
                                     image={p.image}
@@ -33,7 +43,7 @@ const FeaturedWork = () => {
                                 />
                             </div>
                             <div className="feat-meta mono">
-                                <span>{p.year} · {p.kind}</span>
+                                <span>{p.year} · {kinds[p.kind] ?? p.kind}</span>
                                 <span className="feat-arrow">→</span>
                             </div>
                             <h3 className="feat-title">{p.title}</h3>
@@ -49,8 +59,8 @@ const FeaturedWork = () => {
                 ))}
             </div>
             <div className="feat-cta">
-                <Link className="btn-ghost" href="/projects">
-                    See all {projects.length} projects →
+                <Link className="btn-ghost" href={localePath(lang, '/projects')}>
+                    {t.seeAll(projects.length)}
                 </Link>
             </div>
         </section>

@@ -2,50 +2,58 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Reveal from '@/components/Reveal';
+import { getDictionary } from '@/i18n';
+import { alternates, localePath, locales, type Locale } from '@/i18n/config';
 import { blogPosts } from '@/lib/data';
+import { getBlogPosts } from '@/lib/localized';
 
 type Props = {
-    params: Promise<{ slug: string }>;
+    params: Promise<{ lang: Locale; slug: string }>;
     searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { slug } = await params;
-    const post = blogPosts.find((p) => p.slug === slug);
-    if (!post) return { title: 'Post Not Found' };
+    const { lang, slug } = await params;
+    const t = getDictionary(lang).meta;
+    const post = getBlogPosts(lang).find((p) => p.slug === slug);
+    if (!post) return { title: t.postNotFound };
+    // The localized date is display text; the English one is the parseable original.
+    const published = blogPosts.find((p) => p.slug === slug)?.date;
     return {
-        title: `${post.title} | Writing | Soultan Muhammad Albar`,
+        title: t.postTitle(post.title),
         description: post.excerpt,
+        alternates: alternates(`/blog/${slug}`, lang),
         openGraph: {
             title: post.title,
             description: post.excerpt,
             type: 'article',
-            publishedTime: post.date,
+            publishedTime: published,
             authors: ['Soultan Muhammad Albar'],
         },
     };
 }
 
 export function generateStaticParams() {
-    return blogPosts.map((post) => ({ slug: post.slug }));
+    return locales.flatMap((lang) => blogPosts.map((post) => ({ lang, slug: post.slug })));
 }
 
 export default async function BlogDetail({ params }: Props) {
-    const { slug } = await params;
-    const post = blogPosts.find((p) => p.slug === slug);
+    const { lang, slug } = await params;
+    const t = getDictionary(lang).writing;
+    const post = getBlogPosts(lang).find((p) => p.slug === slug);
     if (!post) notFound();
 
     return (
         <section className="page detail post-detail">
             <div className="page-head">
                 <div className="mono dim crumbs">
-                    <Link href="/blog">Writing</Link>
+                    <Link href={localePath(lang, '/blog')}>{t.crumb}</Link>
                     {' / '}<span>{post.slug}</span>
                 </div>
                 <Reveal as="div" className="post-d-meta mono" delay={40}>
                     <span>{post.date}</span>
                     <span className="sep">·</span>
-                    <span>{post.readTime} min read</span>
+                    <span>{t.minRead(post.readTime)}</span>
                     <span className="sep">·</span>
                     {post.tags.map((t) => (
                         <span key={t} className="tag tag-inline">{t}</span>
@@ -55,15 +63,15 @@ export default async function BlogDetail({ params }: Props) {
                     {post.title}<em className="serif-it">.</em>
                 </Reveal>
                 <Reveal className="post-d-author mono dim" delay={200}>
-                    by Soultan Muhammad Albar
+                    {t.by}
                 </Reveal>
             </div>
 
             <article className="post-d-body" dangerouslySetInnerHTML={{ __html: post.content }} />
 
             <div className="post-d-end">
-                <span className="mono dim">— end —</span>
-                <Link className="btn-ghost" href="/blog">← All writing</Link>
+                <span className="mono dim">{t.end}</span>
+                <Link className="btn-ghost" href={localePath(lang, '/blog')}>{t.all}</Link>
             </div>
         </section>
     );

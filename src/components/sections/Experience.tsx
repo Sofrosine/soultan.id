@@ -1,17 +1,21 @@
 import Reveal from '@/components/Reveal';
+import RichText from '@/components/RichText';
 import SectionLabel from '@/components/SectionLabel';
-import { experiences } from '@/lib/data';
+import type { Dictionary } from '@/i18n';
+import type { Experience as ExperienceItem } from '@/lib/data';
 import { getYearsOfExperience } from '@/lib/experience';
 
-const Experience = () => {
+type Props = { t: Dictionary['experience']; experiences: ExperienceItem[] };
+
+const Experience = ({ t, experiences }: Props) => {
     const years = getYearsOfExperience();
     return (
         <section id="experience" className="exp">
             <SectionLabel
                 num="03"
-                kicker="Trajectory"
-                title={<>A career, in <em className="serif-it">chronological</em> order.</>}
-                lede={`From mobile engineer in Yogyakarta to senior contracts spanning Hong Kong and Seoul — ${experiences.length} positions, ${years} years.`}
+                kicker={t.kicker}
+                title={<RichText value={t.title} />}
+                lede={t.lede(experiences.length, years)}
             />
 
             <div className="exp-list">

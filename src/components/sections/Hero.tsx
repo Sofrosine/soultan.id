@@ -5,7 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Reveal from '@/components/Reveal';
 import { getYearsOfExperience } from '@/lib/experience';
-import { projects } from '@/lib/data';
+import type { Dictionary } from '@/i18n';
+import { localePath, type Locale } from '@/i18n/config';
 
 const ROLES = ['Product Engineer', 'Software Engineer'];
 const STACK_MARQUEE = [
@@ -13,7 +14,15 @@ const STACK_MARQUEE = [
     'Docker', 'AWS', 'Kubernetes', 'CI/CD', 'Redis', 'GraphQL', 'Storyblok', 'Firebase', 'Stripe', 'Midtrans',
 ];
 
-const Hero = () => {
+type Props = {
+    /** `lede` is a function in the dictionary, so it arrives already filled in. */
+    t: Omit<Dictionary['hero'], 'lede'>;
+    lede: string;
+    lang: Locale;
+    projectCount: number;
+};
+
+const Hero = ({ t, lede, lang, projectCount }: Props) => {
     const years = getYearsOfExperience();
     const [idx, setIdx] = useState(0);
     const [text, setText] = useState('');
@@ -37,15 +46,15 @@ const Hero = () => {
     return (
         <section className="hero">
             <div className="hero-meta mono">
-                <span>—  Personal Index  /  v2.0</span>
+                <span>{t.meta}</span>
                 <span className="hero-meta-spacer" />
-                <span className="dim">Yogyakarta · ID  ·  GMT+7  ·  Available now</span>
+                <span className="dim">{t.location}</span>
             </div>
 
             <div className="hero-grid">
                 <div className="hero-left">
                     <Reveal as="div" className="hero-tagline mono">
-                        <span className="dot" /> Open to new opportunities
+                        <span className="dot" /> {t.tagline}
                     </Reveal>
 
                     <Reveal as="h1" className="hero-h" delay={80}>
@@ -59,24 +68,21 @@ const Hero = () => {
 
                     <Reveal as="div" className="hero-role" delay={220}>
                         <span className="mono dim">role&nbsp;=</span>
-                        <span className="role-text">{text}</span>
+                        {/* Zero-width space keeps the line box the same height while the text is fully erased. */}
+                        <span className="role-text">{text || '\u200b'}</span>
                         <span className="caret" />
                     </Reveal>
 
                     <Reveal className="hero-lede" delay={320}>
-                        <p>
-                            {years} years in product development — from pre-Series B startups to enterprise
-                            clients in Indonesia, Hong Kong &amp; South Korea. I ship web, mobile, and
-                            AI-powered products with Next.js, React Native, Python, and Golang.
-                        </p>
+                        <p>{lede}</p>
                     </Reveal>
 
                     <Reveal className="hero-cta" delay={420}>
-                        <Link className="btn-prim" href="/projects">
-                            Browse work →
+                        <Link className="btn-prim" href={localePath(lang, '/projects')}>
+                            {t.browse}
                         </Link>
-                        <Link className="btn-ghost" href="/contact">
-                            Start a conversation
+                        <Link className="btn-ghost" href={localePath(lang, '/contact')}>
+                            {t.talk}
                         </Link>
                     </Reveal>
                 </div>
@@ -101,15 +107,15 @@ const Hero = () => {
                     <Reveal className="hero-stats" delay={300}>
                         <div className="stat">
                             <div className="stat-n">{years}+</div>
-                            <div className="stat-l mono">Years shipping software</div>
+                            <div className="stat-l mono">{t.statYears}</div>
                         </div>
                         <div className="stat">
-                            <div className="stat-n">{projects.length}</div>
-                            <div className="stat-l mono">Projects shipped</div>
+                            <div className="stat-n">{projectCount}</div>
+                            <div className="stat-l mono">{t.statProjects}</div>
                         </div>
                         <div className="stat">
                             <div className="stat-n">3</div>
-                            <div className="stat-l mono">Countries collaborated with</div>
+                            <div className="stat-l mono">{t.statCountries}</div>
                         </div>
                     </Reveal>
                 </div>

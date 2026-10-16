@@ -3,31 +3,40 @@ import ProjectMedia from '@/components/ProjectMedia';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Reveal from '@/components/Reveal';
-import { projects } from '@/lib/data';
+import { getDictionary } from '@/i18n';
+import { alternates, localePath, locales, type Locale } from '@/i18n/config';
+import { getProjects } from '@/lib/localized';
 
 type Props = {
-    params: Promise<{ slug: string }>;
+    params: Promise<{ lang: Locale; slug: string }>;
     searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { slug } = await params;
-    const project = projects.find((p) => p.slug === slug);
-    if (!project) return { title: 'Project Not Found' };
+    const { lang, slug } = await params;
+    const t = getDictionary(lang).meta;
+    const project = getProjects(lang).find((p) => p.slug === slug);
+    if (!project) return { title: t.projectNotFound };
     return {
-        title: `${project.title} | Work | Soultan Muhammad Albar`,
+        title: t.projectTitle(project.title),
         description: project.description,
+        alternates: alternates(`/projects/${slug}`, lang),
     };
 }
 
 export function generateStaticParams() {
-    return projects
-        .filter((p) => p.slug)
-        .map((p) => ({ slug: p.slug as string }));
+    return locales.flatMap((lang) =>
+        getProjects(lang)
+            .filter((p) => p.slug)
+            .map((p) => ({ lang, slug: p.slug as string })),
+    );
 }
 
 export default async function ProjectDetailPage({ params }: Props) {
-    const { slug } = await params;
+    const { lang, slug } = await params;
+    const t = getDictionary(lang).project;
+    const crumb = getDictionary(lang).work.crumb;
+    const projects = getProjects(lang);
     const project = projects.find((p) => p.slug === slug);
     if (!project) notFound();
 
@@ -39,7 +48,7 @@ export default async function ProjectDetailPage({ params }: Props) {
         <section className="page detail">
             <div className="page-head">
                 <div className="mono dim crumbs">
-                    <Link href="/projects">Work</Link>
+                    <Link href={localePath(lang, '/projects')}>{crumb}</Link>
                     {' / '}<span>{project.slug}</span>
                 </div>
                 <Reveal as="h1" className="detail-h">
@@ -48,14 +57,14 @@ export default async function ProjectDetailPage({ params }: Props) {
                 <Reveal className="detail-meta mono" delay={100}>
                     <span>{project.year}</span>
                     <span className="sep">·</span>
-                    <span>{project.kind}</span>
+                    <span>{t.kinds[project.kind] ?? project.kind}</span>
                     <span className="sep">·</span>
-                    <span>{project.technologies.length} technologies</span>
+                    <span>{t.technologies(project.technologies.length)}</span>
                     {project.demo && (
                         <>
                             <span className="sep">·</span>
                             <a href={project.demo} target="_blank" rel="noreferrer" className="ulink">
-                                live ↗
+                                {t.live}
                             </a>
                         </>
                     )}
@@ -63,7 +72,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                         <>
                             <span className="sep">·</span>
                             <a href={project.github} target="_blank" rel="noreferrer" className="ulink">
-                                source ↗
+                                {t.source}
                             </a>
                         </>
                     )}
@@ -84,7 +93,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             <div className="detail-body">
                 <aside className="detail-side">
                     <div className="side-block">
-                        <div className="side-h mono">Stack</div>
+                        <div className="side-h mono">{t.stack}</div>
                         <div className="side-tags">
                             {project.technologies.map((t) => (
                                 <span className="tag" key={t}>{t}</span>
@@ -92,32 +101,32 @@ export default async function ProjectDetailPage({ params }: Props) {
                         </div>
                     </div>
                     <div className="side-block">
-                        <div className="side-h mono">Year</div>
+                        <div className="side-h mono">{t.year}</div>
                         <div className="side-v">{project.year}</div>
                     </div>
                     <div className="side-block">
-                        <div className="side-h mono">Kind</div>
-                        <div className="side-v">{project.kind}</div>
+                        <div className="side-h mono">{t.kind}</div>
+                        <div className="side-v">{t.kinds[project.kind] ?? project.kind}</div>
                     </div>
                     {project.demo && (
                         <a className="btn-prim btn-block" href={project.demo} target="_blank" rel="noreferrer">
-                            Visit live site →
+                            {t.visit}
                         </a>
                     )}
                     {project.github && (
                         <a className="btn-ghost btn-block" href={project.github} target="_blank" rel="noreferrer">
-                            View source on GitHub ↗
+                            {t.viewSource}
                         </a>
                     )}
                 </aside>
 
                 <article className="detail-prose">
-                    <h2 className="prose-h"><span className="mono dim">§</span> Overview</h2>
+                    <h2 className="prose-h"><span className="mono dim">§</span> {t.overview}</h2>
                     <p className="prose-lede">{project.description}</p>
 
                     {project.features && project.features.length > 0 && (
                         <>
-                            <h2 className="prose-h"><span className="mono dim">§</span> Key features</h2>
+                            <h2 className="prose-h"><span className="mono dim">§</span> {t.features}</h2>
                             <ul className="prose-list">
                                 {project.features.map((f, i) => (
                                     <li key={i}>
@@ -131,7 +140,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
                     {project.challenges && (
                         <>
-                            <h2 className="prose-h"><span className="mono dim">§</span> Challenges &amp; solutions</h2>
+                            <h2 className="prose-h"><span className="mono dim">§</span> {t.challenges}</h2>
                             <p className="prose-q">{project.challenges}</p>
                         </>
                     )}
@@ -140,14 +149,14 @@ export default async function ProjectDetailPage({ params }: Props) {
 
             <div className="detail-nav">
                 {prev && prev.slug ? (
-                    <Link className="dnav dnav-prev" href={`/projects/${prev.slug}`}>
-                        <span className="mono dim">← previous</span>
+                    <Link className="dnav dnav-prev" href={localePath(lang, `/projects/${prev.slug}`)}>
+                        <span className="mono dim">{t.previous}</span>
                         <span className="dnav-title">{prev.title}</span>
                     </Link>
                 ) : <span />}
                 {next && next.slug ? (
-                    <Link className="dnav dnav-next" href={`/projects/${next.slug}`}>
-                        <span className="mono dim">next →</span>
+                    <Link className="dnav dnav-next" href={localePath(lang, `/projects/${next.slug}`)}>
+                        <span className="mono dim">{t.next}</span>
                         <span className="dnav-title">{next.title}</span>
                     </Link>
                 ) : <span />}

@@ -3,27 +3,33 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import type { Dictionary } from '@/i18n';
+import { localePath, stripLocale, type Locale } from '@/i18n/config';
+import { BLOG_ENABLED } from '@/lib/features';
 
-const links = [
-    { name: 'Index', to: '/', match: 'home' },
-    { name: 'Work', to: '/projects', match: 'projects' },
-    { name: 'Writing', to: '/blog', match: 'blog' },
-    { name: 'Contact', to: '/contact', match: 'contact' },
-];
-
-const matchActive = (pathname: string): string => {
-    if (pathname === '/') return 'home';
-    if (pathname.startsWith('/projects')) return 'projects';
-    if (pathname.startsWith('/blog')) return 'blog';
-    if (pathname.startsWith('/contact')) return 'contact';
+const matchActive = (path: string): string => {
+    if (path === '/') return 'home';
+    if (path.startsWith('/projects')) return 'projects';
+    if (path.startsWith('/blog')) return 'blog';
+    if (path.startsWith('/contact')) return 'contact';
     return '';
 };
 
-const Header = () => {
+type Props = { lang: Locale; t: Dictionary['nav'] };
+
+const Header = ({ lang, t }: Props) => {
     const [scrolled, setScrolled] = useState(false);
     const [open, setOpen] = useState(false);
-    const pathname = usePathname() || '/';
-    const active = matchActive(pathname);
+    const { path } = stripLocale(usePathname() || '/');
+    const active = matchActive(path);
+    const other: Locale = lang === 'en' ? 'id' : 'en';
+
+    const links = [
+        { name: t.index, to: '/', match: 'home' },
+        { name: t.work, to: '/projects', match: 'projects' },
+        ...(BLOG_ENABLED ? [{ name: t.writing, to: '/blog', match: 'blog' }] : []),
+        { name: t.contact, to: '/contact', match: 'contact' },
+    ];
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 12);
@@ -32,43 +38,62 @@ const Header = () => {
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
 
+    const langSwitch = (
+        <Link
+            href={localePath(other, path)}
+            className="nav-lang mono"
+            hrefLang={other}
+            title={t.switchTo}
+            aria-label={t.switchTo}
+            onClick={() => setOpen(false)}
+        >
+            <span className={lang === 'en' ? 'is-on' : ''}>EN</span>
+            <span className="nav-lang-sep">/</span>
+            <span className={lang === 'id' ? 'is-on' : ''}>ID</span>
+        </Link>
+    );
+
     return (
         <header className={`nav${scrolled ? ' nav-scrolled' : ''}`}>
             <div className="nav-inner">
-                <Link href="/" className="brand" onClick={() => setOpen(false)}>
+                <Link href={localePath(lang, '/')} className="brand" onClick={() => setOpen(false)}>
                     <span className="brand-mark">SMA</span>
                     <span className="brand-meta">
                         <span className="brand-name">Soultan M. Albar</span>
-                        <span className="brand-role">Product &amp; Software Engineer · est. 2020</span>
+                        <span className="brand-role">{t.role}</span>
                     </span>
                 </Link>
                 <nav className="nav-links">
                     {links.map((l, i) => (
                         <Link
                             key={l.to}
-                            href={l.to}
+                            href={localePath(lang, l.to)}
                             className={`nav-link${active === l.match ? ' is-active' : ''}`}
                         >
                             <span className="nav-num">{String(i + 1).padStart(2, '0')}</span>
                             <span className="nav-name">{l.name}</span>
                         </Link>
                     ))}
+                    {langSwitch}
                 </nav>
-                <button
-                    className="nav-toggle"
-                    aria-label="Menu"
-                    aria-expanded={open}
-                    onClick={() => setOpen((o) => !o)}
-                >
-                    <span /><span /><span />
-                </button>
+                <div className="nav-mobile-actions">
+                    {langSwitch}
+                    <button
+                        className="nav-toggle"
+                        aria-label={t.menu}
+                        aria-expanded={open}
+                        onClick={() => setOpen((o) => !o)}
+                    >
+                        <span /><span /><span />
+                    </button>
+                </div>
             </div>
             {open && (
                 <div className="nav-mobile">
                     {links.map((l) => (
                         <Link
                             key={l.to}
-                            href={l.to}
+                            href={localePath(lang, l.to)}
                             className={`nav-mobile-link${active === l.match ? ' is-active' : ''}`}
                             onClick={() => setOpen(false)}
                         >

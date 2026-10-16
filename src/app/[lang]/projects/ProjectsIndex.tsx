@@ -1,21 +1,30 @@
 import Link from 'next/link';
 import ProjectMedia from '@/components/ProjectMedia';
 import Reveal from '@/components/Reveal';
-import { projects } from '@/lib/data';
+import RichText from '@/components/RichText';
+import type { Dictionary } from '@/i18n';
+import { localePath, type Locale } from '@/i18n/config';
+import type { Project } from '@/lib/data';
 
-const ProjectsIndex = () => {
+type Props = {
+    lang: Locale;
+    t: Dictionary['work'];
+    /** Breadcrumb root, the localized name of the home page. */
+    root: string;
+    kinds: Record<string, string>;
+    projects: Project[];
+};
+
+const ProjectsIndex = ({ lang, t, root, kinds, projects }: Props) => {
     return (
         <section className="page">
             <div className="page-head">
-                <div className="mono dim crumbs">Index / <span>Work</span></div>
+                <div className="mono dim crumbs">{root} / <span>{t.crumb}</span></div>
                 <Reveal as="h1" className="page-h">
-                    <em className="serif-it">Selected</em> &amp; less-selected work, <span className="dim">2020 — now.</span>
+                    <RichText value={t.title} /><span className="dim">{t.titleDim}</span>
                 </Reveal>
                 <Reveal className="page-lede" delay={120}>
-                    <p>
-                        {projects.length} projects across web and mobile, for clients in Indonesia, Hong Kong,
-                        and South Korea.
-                    </p>
+                    <p>{t.lede(projects.length)}</p>
                 </Reveal>
             </div>
 
@@ -24,7 +33,7 @@ const ProjectsIndex = () => {
                     <Link
                         key={p.slug || p.title}
                         className="proj-card"
-                        href={p.slug ? `/projects/${p.slug}` : '/projects'}
+                        href={localePath(lang, p.slug ? `/projects/${p.slug}` : '/projects')}
                     >
                         <div className="proj-card-img">
                             <ProjectMedia
@@ -37,7 +46,7 @@ const ProjectsIndex = () => {
                         </div>
                         <div className="proj-card-body">
                             <div className="proj-card-meta mono">
-                                <span>{p.year} · {p.kind}</span>
+                                <span>{p.year} · {kinds[p.kind] ?? p.kind}</span>
                                 <span className="feat-arrow">→</span>
                             </div>
                             <h3 className="proj-card-title">{p.title}</h3>

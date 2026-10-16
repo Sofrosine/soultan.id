@@ -2,8 +2,12 @@
 
 import { FormEvent, useState } from 'react';
 import Reveal from '@/components/Reveal';
+import RichText from '@/components/RichText';
+import type { Dictionary } from '@/i18n';
 
-const ContactView = () => {
+type Props = { t: Dictionary['contact']; root: string };
+
+const ContactView = ({ t, root }: Props) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [msg, setMsg] = useState('');
@@ -11,7 +15,10 @@ const ContactView = () => {
 
     const submit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const tpl = `Hi Soultan!\nI'm ${name} (${email}),\n${msg}`;
+        const tpl = t.waTemplate
+            .replace('{name}', name)
+            .replace('{email}', email)
+            .replace('{msg}', msg);
         window.open(`https://wa.me/6281227711071?text=${encodeURIComponent(tpl)}`, '_blank');
         setSent(true);
     };
@@ -19,21 +26,18 @@ const ContactView = () => {
     return (
         <section className="page">
             <div className="page-head">
-                <div className="mono dim crumbs">Index / <span>Contact</span></div>
+                <div className="mono dim crumbs">{root} / <span>{t.crumb}</span></div>
                 <Reveal as="h1" className="page-h">
-                    Let&apos;s <em className="serif-it">talk</em>.
+                    <RichText value={t.title} />
                 </Reveal>
                 <Reveal className="page-lede" delay={120}>
-                    <p>
-                        Open to engineering work, contract or full-time. I read everything that lands in my
-                        inbox and reply within two business days.
-                    </p>
+                    <p>{t.lede}</p>
                 </Reveal>
             </div>
 
             <div className="contact-grid">
                 <Reveal className="contact-channels">
-                    <div className="ch-h mono">Direct channels</div>
+                    <div className="ch-h mono">{t.channels}</div>
                     <ul className="ch-list">
                         <li>
                             <a href="mailto:soultanmuh@gmail.com">
@@ -67,51 +71,50 @@ const ContactView = () => {
                         </li>
                     </ul>
 
-                    <div className="ch-h mono ch-h-2">Availability</div>
+                    <div className="ch-h mono ch-h-2">{t.availability}</div>
                     <ul className="ch-status">
-                        <li><span className="dot dot-on" /> Product &amp; software engineering</li>
-                        <li><span className="dot dot-on" /> Contract React Native work</li>
-                        <li><span className="dot dot-warn" /> Full-time relocation (case-by-case)</li>
+                        <li><span className="dot dot-on" /> {t.statusOn1}</li>
+                        <li><span className="dot dot-warn" /> {t.statusWarn}</li>
                     </ul>
                 </Reveal>
 
                 <Reveal className="contact-form" delay={120}>
                     <form onSubmit={submit}>
                         <div className="form-row">
-                            <label className="mono">name</label>
+                            <label className="mono">{t.name}</label>
                             <input
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 required
-                                placeholder="Jane Doe"
+                                placeholder={t.namePh}
                             />
                         </div>
                         <div className="form-row">
-                            <label className="mono">email</label>
+                            <label className="mono">{t.email}</label>
                             <input
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
-                                placeholder="jane@company.com"
+                                placeholder={t.emailPh}
                             />
                         </div>
                         <div className="form-row">
-                            <label className="mono">message</label>
+                            <label className="mono">{t.message}</label>
                             <textarea
                                 rows={6}
                                 value={msg}
                                 onChange={(e) => setMsg(e.target.value)}
                                 required
-                                placeholder="Tell me about the project, timeline, and team you're working with…"
+                                placeholder={t.messagePh}
                             />
                         </div>
                         <button type="submit" className="btn-prim btn-block">
-                            Send via WhatsApp →
+                            {t.send}
                         </button>
-                        {sent && <div className="form-ok mono">✓ WhatsApp opened with your message.</div>}
+                        {sent && <div className="form-ok mono">{t.sent}</div>}
                         <p className="form-fine mono dim">
-                            Submitting opens a WhatsApp tab with the message pre-filled. Prefer email?{' '}
+                            {t.fineBefore}
                             <a href="mailto:soultanmuh@gmail.com">soultanmuh@gmail.com</a>.
                         </p>
                     </form>
