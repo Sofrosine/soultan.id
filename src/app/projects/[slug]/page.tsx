@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
+import ProjectMedia from '@/components/ProjectMedia';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Reveal from '@/components/Reveal';
@@ -70,11 +70,11 @@ export default async function ProjectDetailPage({ params }: Props) {
                 </Reveal>
             </div>
 
-            <Reveal className="detail-hero">
-                <Image
-                    src={project.image}
+            <Reveal className={`detail-hero${project.video ? ' detail-hero-video' : ''}`}>
+                <ProjectMedia
+                    image={project.image}
+                    video={project.video}
                     alt={project.title}
-                    fill
                     sizes="(max-width: 1320px) 100vw, 1320px"
                     priority
                 />

@@ -7,7 +7,7 @@ import Reveal from '@/components/Reveal';
 import { getYearsOfExperience } from '@/lib/experience';
 import { projects } from '@/lib/data';
 
-const ROLES = ['Frontend Engineer', 'Mobile Engineer', 'Full-stack Builder', 'Product Engineer', 'AI Engineer'];
+const ROLES = ['Product Engineer', 'Software Engineer'];
 const STACK_MARQUEE = [
     'Next.js', 'React Native', 'TypeScript', 'Golang', 'PostgreSQL', 'RabbitMQ',
     'Docker', 'AWS', 'Kubernetes', 'CI/CD', 'Redis', 'GraphQL', 'Storyblok', 'Firebase', 'Stripe', 'Midtrans',
@@ -65,10 +65,9 @@ const Hero = () => {
 
                     <Reveal className="hero-lede" delay={320}>
                         <p>
-                            I build durable, well-typed software for teams that have to ship — across web,
-                            mobile, and the awkward bits in between. {years} years spanning startups in
-                            Yogyakarta, contracts in Hong Kong &amp; Seoul, and the freelance work that keeps
-                            the rest honest.
+                            {years} years in product development — from pre-Series B startups to enterprise
+                            clients in Indonesia, Hong Kong &amp; South Korea. I ship web, mobile, and
+                            AI-powered products with Next.js, React Native, Python, and Golang.
                         </p>
                     </Reveal>
 

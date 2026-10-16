@@ -39,7 +39,7 @@ const Header = () => {
                     <span className="brand-mark">SMA</span>
                     <span className="brand-meta">
                         <span className="brand-name">Soultan M. Albar</span>
-                        <span className="brand-role">Software Engineer · est. 2020</span>
+                        <span className="brand-role">Product &amp; Software Engineer · est. 2020</span>
                     </span>
                 </Link>
                 <nav className="nav-links">

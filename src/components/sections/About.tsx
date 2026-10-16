@@ -5,8 +5,8 @@ import { getYearsOfExperience } from '@/lib/experience';
 const HIGHLIGHTS: [string, string][] = [
     ['Startup pace', 'Pre-Series B founding-team velocity, owning roadmap chunks end-to-end.'],
     ['International work', 'Embedded with teams in Hong Kong, Seoul, and Indonesia across timezones.'],
-    ['Stack reach', 'Next.js · React Native · Go · Postgres · AWS — picked for fit, not fashion.'],
-    ['Product lifecycle', 'Discovery → architecture → ship → measure → iterate.'],
+    ['Stack reach', 'Next.js · React · React Native · Python · Golang · Java · AWS — picked for fit, not fashion.'],
+    ['AI products', 'Real-time AI chat streaming, AI document drafting & review, vision-model pipelines.'],
 ];
 
 const About = () => {
@@ -24,12 +24,13 @@ const About = () => {
                     <p>
                         With <strong>{years} years</strong> in product development, I&apos;ve contributed to
                         dynamic, fast-paced environments — including pre-Series B startups — and have
-                        successfully collaborated with clients from Hong Kong and South Korea.
+                        successfully collaborated with clients from Indonesia, Hong Kong, and South Korea.
                     </p>
                     <p>
-                        I work fluently across the stack: Next.js and React for the web, React Native for
-                        mobile, Golang for the systems behind them. My instinct is to keep architecture small,
-                        types tight, and the shipping cadence boring — in the good way.
+                        As a software engineer, I&apos;ve delivered numerous projects with Next.js, React.js,
+                        React Native, Python, and Golang — including AI-powered products such as real-time AI
+                        chat streaming, AI-assisted document drafting and review, and a vision-model pipeline
+                        that validates location data against satellite imagery.
                     </p>
                     <p>
                         What I&apos;m best at: turning fuzzy product asks into well-scoped engineering work,

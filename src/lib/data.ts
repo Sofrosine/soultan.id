@@ -3,6 +3,8 @@ export interface Project {
     slug?: string;
     description: string;
     image: string;
+    /** Short screen recording used as the preview; falls back to `image` when absent. */
+    video?: string;
     technologies: string[];
     github?: string;
     demo?: string;
@@ -42,6 +44,26 @@ export interface SkillGroup {
 }
 
 export const projects: Project[] = [
+    {
+        title: 'Geospatial Facility Validation',
+        slug: 'geospatial-facility-validation',
+        description: 'An internal validation tool for a livestock and aquaculture feed producer. It audits a customer location database against high resolution satellite imagery, classifying each coordinate as a poultry barn, aquaculture pond, general building, or farmland within a 150 m radius, and flags the records that do not sit on a real facility.',
+        image: '/images/portofolio/p-geovalidation.png',
+        video: '/videos/portofolio/p-geovalidation.mp4',
+        technologies: ['Satellite Imagery', 'Computer Vision', 'Geospatial Analysis', 'Web Application'],
+        features: [
+            'Reads the coordinate list straight from the client’s own CSV or Excel export, with no reformatting first',
+            'Three satellite views per coordinate, from close detail out to the surrounding landscape',
+            'A two stage check over a 150 m radius: what the facility is, then whether this exact pin lands on it',
+            'An estimated facility position drawn on the map, joined to the recorded pin by a dashed line when the two disagree',
+            'A region check against the regency and province recorded in the file, and a cross check against public map listings',
+            'Every verdict carries the reason behind it, exported row by row as a spreadsheet the client’s own staff can read',
+            'A correction file that lets a human override a verdict while keeping the original reading on record',
+        ],
+        challenges: 'Most of the work was measurement rather than guesswork. Telling a pond from a flooded field by colour does not work, because their mean brightness differs by about two grey levels, so the rule was rewritten around surface texture once that was measured: water varies by roughly 7 to 11 grey levels across the surface, wet field by 26 to 38. A second failure was subtler. The wide view would read as full of aquaculture, and a pond would then be reported close to the pin that was not actually there. That only became visible after drawing distance rings on the rendered frames and finding the real ponds 150 to 350 m away. Imagery resolution decided which source to use: at 0.6 m per pixel a market reads as a row of barns, at 0.2 m per pixel it reads correctly, and no amount of rewording fixed it. Because a single pass flips roughly one row in four on the borderline cases, every change was judged on repeated runs rather than on one result.',
+        year: '2026', kind: 'AI / LLM',
+        lastModified: '2026-10-16',
+    },
     {
         title: 'infonih',
         slug: 'infonih',
@@ -409,13 +431,14 @@ export const experiences: Experience[] = [
         company: 'Yindjin Genggam Bersama',
         companyUrl: 'https://www.yindjin.tech',
         location: 'Indonesia (Remote)',
-        type: 'Part-time',
+        type: 'Contract',
         duration: 'Jan 2025 — Present',
         description: [
             'Developed Java services to handle payment gateway callbacks, processing callback events and publishing updates to Solace for downstream consumers.',
-            'Built cron-based reconciliation jobs and partial-payment handling to keep the database in sync with callback data from the payment gateway.',
+            'Built reconciliation jobs (cron-based) and partial-payment handling to keep the database in sync with callback data from the payment gateway.',
+            'Built an AI tool that validates a feed company’s customer coordinate database against satellite imagery, using a vision model to tell poultry barns and aquaculture ponds from ordinary buildings and farmland, with a multi-scale imagery pipeline and a measured, versioned prompt.',
         ],
-        tech: ['Java', 'Solace', 'PostgreSQL', 'Payment Gateway', 'Cron Jobs'],
+        tech: ['Satellite Imagery', 'Geospatial', 'Java', 'Solace', 'PostgreSQL', 'Payment Gateway'],
     },
     {
         title: 'Frontend Engineer',
@@ -450,7 +473,7 @@ export const experiences: Experience[] = [
         company: 'ATech Solution Limited',
         companyUrl: 'https://www.atech.software',
         location: 'Hong Kong (Remote)',
-        type: 'Contract',
+        type: 'Full-time',
         duration: 'Sep 2023 — Dec 2024',
         description: [
             'Developed critical security systems with AWS Cognito and Lambda, ensuring high reliability and secure authentication.',

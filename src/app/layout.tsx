@@ -3,6 +3,8 @@ import { Inter, Instrument_Serif, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import RouteProgress from '@/components/RouteProgress';
+import { Suspense } from 'react';
 import { getYearsOfExperience } from '@/lib/experience';
 
 const yearsOfExperience = getYearsOfExperience();
@@ -29,12 +31,12 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Soultan Muhammad Albar | Software Engineer',
-  description: `Personal portfolio of Soultan Muhammad Albar, a Software Engineer with ${yearsOfExperience}+ years of experience`,
-  keywords: 'software engineer, next.js, typescript, react, portfolio',
+  title: 'Soultan Muhammad Albar | Product & Software Engineer',
+  description: `Soultan Muhammad Albar — Product & Software Engineer with ${yearsOfExperience}+ years of product development across Indonesia, Hong Kong, and South Korea. Next.js, React, React Native, Python, Golang, and AI-powered products.`,
+  keywords: 'product engineer, software engineer, next.js, react, react native, golang, python, ai, portfolio',
   openGraph: {
-    title: 'Soultan Muhammad Albar | Software Engineer',
-    description: `Personal portfolio of Soultan Muhammad Albar, a Software Engineer with ${yearsOfExperience}+ years of experience`,
+    title: 'Soultan Muhammad Albar | Product & Software Engineer',
+    description: `Soultan Muhammad Albar — Product & Software Engineer with ${yearsOfExperience}+ years of product development across Indonesia, Hong Kong, and South Korea. Next.js, React, React Native, Python, Golang, and AI-powered products.`,
     url: 'https://soultan.id',
     siteName: 'Soultan Muhammad Albar',
     images: [
@@ -50,8 +52,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Soultan Muhammad Albar | Software Engineer',
-    description: `Personal portfolio of Soultan Muhammad Albar, a Software Engineer with ${yearsOfExperience}+ years of experience`,
+    title: 'Soultan Muhammad Albar | Product & Software Engineer',
+    description: `Soultan Muhammad Albar — Product & Software Engineer with ${yearsOfExperience}+ years of product development across Indonesia, Hong Kong, and South Korea. Next.js, React, React Native, Python, Golang, and AI-powered products.`,
     images: ['/images/og-image.jpg'],
   },
   robots: {
@@ -77,6 +79,9 @@ export default function RootLayout({
       className={`${inter.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} scroll-smooth`}
     >
       <body>
+        <Suspense fallback={null}>
+          <RouteProgress />
+        </Suspense>
         <div className="app">
           <Header />
           <main>{children}</main>

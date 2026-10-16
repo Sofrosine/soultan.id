@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import ProjectMedia from '@/components/ProjectMedia';
 import Link from 'next/link';
 import Reveal from '@/components/Reveal';
 import SectionLabel from '@/components/SectionLabel';
@@ -24,10 +24,10 @@ const FeaturedWork = () => {
                     <Reveal key={p.slug} delay={i * 80}>
                         <Link className="feat-card" href={p.slug ? `/projects/${p.slug}` : '/projects'}>
                             <div className="feat-card-img">
-                                <Image
-                                    src={p.image}
+                                <ProjectMedia
+                                    image={p.image}
+                                    video={p.video}
                                     alt={p.title}
-                                    fill
                                     sizes="(max-width: 820px) 100vw, 50vw"
                                 />
                             </div>

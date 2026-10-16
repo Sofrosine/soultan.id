@@ -9,8 +9,8 @@ import { getYearsOfExperience } from '@/lib/experience';
 const yearsOfExperience = getYearsOfExperience();
 
 export const metadata: Metadata = {
-    title: 'Soultan Muhammad Albar | Software Engineer',
-    description: `Personal portfolio of Soultan Muhammad Albar, a Software Engineer with ${yearsOfExperience}+ years of experience`,
+    title: 'Soultan Muhammad Albar | Product & Software Engineer',
+    description: `Soultan Muhammad Albar — Product & Software Engineer with ${yearsOfExperience}+ years of product development across Indonesia, Hong Kong, and South Korea. Next.js, React, React Native, Python, Golang, and AI-powered products.`,
 };
 
 export default function Home() {

@@ -69,7 +69,7 @@ const ContactView = () => {
 
                     <div className="ch-h mono ch-h-2">Availability</div>
                     <ul className="ch-status">
-                        <li><span className="dot dot-on" /> Frontend &amp; full-stack engineering</li>
+                        <li><span className="dot dot-on" /> Product &amp; software engineering</li>
                         <li><span className="dot dot-on" /> Contract React Native work</li>
                         <li><span className="dot dot-warn" /> Full-time relocation (case-by-case)</li>
                     </ul>
