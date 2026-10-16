@@ -74,6 +74,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 <ProjectMedia
                     image={project.image}
                     video={project.video}
+                    background={project.mediaBg}
                     alt={project.title}
                     sizes="(max-width: 1320px) 100vw, 1320px"
                     priority

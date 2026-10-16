@@ -5,6 +5,8 @@ export interface Project {
     image: string;
     /** Short screen recording used as the preview; falls back to `image` when absent. */
     video?: string;
+    /** Set for portrait recordings: the frame is fitted whole against this colour instead of cropped. */
+    mediaBg?: string;
     technologies: string[];
     github?: string;
     demo?: string;
@@ -44,6 +46,26 @@ export interface SkillGroup {
 }
 
 export const projects: Project[] = [
+    {
+        title: 'Seenara',
+        slug: 'seenara',
+        description: 'A personal archive you can search in everyday language. Save a photo or a few words about your day, and years later find it again by asking vaguely, the way you actually remember it. A query like "the dance I saw in Bali" finds the right story even when neither word was ever written down. A native iOS app backed by a Python API, with an AI chat that answers only from your own stories and cites every one it uses.',
+        image: '/images/portofolio/p-seenara.jpg',
+        video: '/videos/portofolio/p-seenara.mp4',
+        mediaBg: '#fbf3ee',
+        technologies: ['SwiftUI', 'Python', 'FastAPI', 'PostgreSQL', 'pgvector', 'OpenAI', 'Supabase', 'RevenueCat'],
+        features: [
+            'Capture a story in seconds: a photo, a few words, or both',
+            'Semantic search in everyday language, so a story turns up without remembering its exact words',
+            'A vision model writes a neutral caption, reads visible text, and tags every photo, so a photo with no note at all can still be found',
+            'Ask your stories directly: an AI chat that answers only from your own archive and cites the stories behind each answer',
+            'Related stories connect automatically',
+            'A journal view of what you saved, plus a Plus subscription through RevenueCat',
+        ],
+        challenges: 'Success was defined as recall, not AI: the moment someone types a vague question about something they forgot they saved, and it comes back. Every technical choice was measured against that. Search, embedding and keyword matching run concurrently in a single query against Postgres with pgvector, so relational data, vectors and full text live in one database instead of a separate vector store. In the chat, a model citing a story is a request, not a guarantee, so every citation is validated against what was actually retrieved and an answer with no surviving citation is dropped. Before building the app at all, the product had to pass a 30-day gate as a Telegram bot in daily personal use.',
+        year: '2026', kind: 'AI / LLM',
+        lastModified: '2026-10-16',
+    },
     {
         title: 'Geospatial Facility Validation',
         slug: 'geospatial-facility-validation',

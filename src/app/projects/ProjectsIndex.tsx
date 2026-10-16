@@ -30,6 +30,7 @@ const ProjectsIndex = () => {
                             <ProjectMedia
                                 image={p.image}
                                 video={p.video}
+                                background={p.mediaBg}
                                 alt={p.title}
                                 sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 33vw"
                             />

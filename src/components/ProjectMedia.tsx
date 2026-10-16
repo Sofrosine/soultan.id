@@ -5,6 +5,8 @@ type Props = {
     image: string;
     /** When present, the preview plays instead of showing the still. */
     video?: string;
+    /** Portrait recordings are shown whole against this colour rather than cropped to the slot. */
+    background?: string;
     alt: string;
     sizes: string;
     priority?: boolean;
@@ -15,11 +17,12 @@ type Props = {
  * honest way to show them is a short screen recording — hence the video branch.
  * The container around this element supplies position/overflow; both branches fill it.
  */
-const ProjectMedia = ({ image, video, alt, sizes, priority }: Props) => {
+const ProjectMedia = ({ image, video, background, alt, sizes, priority }: Props) => {
     if (video) {
         return (
             <video
                 className="media-fill"
+                style={background ? { objectFit: 'contain', background } : undefined}
                 src={video}
                 poster={image}
                 aria-label={alt}

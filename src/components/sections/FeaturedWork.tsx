@@ -27,6 +27,7 @@ const FeaturedWork = () => {
                                 <ProjectMedia
                                     image={p.image}
                                     video={p.video}
+                                    background={p.mediaBg}
                                     alt={p.title}
                                     sizes="(max-width: 820px) 100vw, 50vw"
                                 />
