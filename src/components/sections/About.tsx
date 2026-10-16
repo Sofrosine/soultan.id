@@ -16,7 +16,7 @@ const About = () => {
             <SectionLabel
                 num="01"
                 kicker="About"
-                title={<>Engineer first, with the <em className="serif-it">judgment</em> of someone who has shipped a lot of products.</>}
+                title={<>I turn product ideas into <em className="serif-it">working</em> software.</>}
             />
 
             <div className="about-grid">
