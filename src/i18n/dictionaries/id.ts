@@ -94,11 +94,7 @@ const id: Dictionary = {
         previous: '← sebelumnya',
         next: 'berikutnya →',
         kinds: {
-            'AI / LLM': 'AI / LLM',
-            Conference: 'Konferensi',
             Mobile: 'Mobile',
-            Personal: 'Pribadi',
-            SaaS: 'SaaS',
             Web: 'Web',
         },
     },

@@ -98,11 +98,7 @@ const en = {
         previous: '← previous',
         next: 'next →',
         kinds: {
-            'AI / LLM': 'AI / LLM',
-            Conference: 'Conference',
             Mobile: 'Mobile',
-            Personal: 'Personal',
-            SaaS: 'SaaS',
             Web: 'Web',
         } as Record<string, string>,
     },

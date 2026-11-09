@@ -13,7 +13,7 @@ export interface Project {
     features?: string[];
     challenges?: string;
     year: string;
-    kind: string;
+    kind: 'Web' | 'Mobile';
     lastModified?: string;
 }
 
@@ -63,7 +63,7 @@ export const projects: Project[] = [
             'A journal view of what you saved, plus a Plus subscription through RevenueCat',
         ],
         challenges: 'Success was defined as recall, not AI: the moment someone types a vague question about something they forgot they saved, and it comes back. Every technical choice was measured against that. Search, embedding and keyword matching run concurrently in a single query against Postgres with pgvector, so relational data, vectors and full text live in one database instead of a separate vector store. In the chat, a model citing a story is a request, not a guarantee, so every citation is validated against what was actually retrieved and an answer with no surviving citation is dropped. Before building the app at all, the product had to pass a 30-day gate as a Telegram bot in daily personal use.',
-        year: '2026', kind: 'AI / LLM',
+        year: '2026', kind: 'Mobile',
         lastModified: '2026-10-16',
     },
     {
@@ -83,7 +83,7 @@ export const projects: Project[] = [
             'A correction file that lets a human override a verdict while keeping the original reading on record',
         ],
         challenges: 'Most of the work was measurement rather than guesswork. Telling a pond from a flooded field by colour does not work, because their mean brightness differs by about two grey levels, so the rule was rewritten around surface texture once that was measured: water varies by roughly 7 to 11 grey levels across the surface, wet field by 26 to 38. A second failure was subtler. The wide view would read as full of aquaculture, and a pond would then be reported close to the pin that was not actually there. That only became visible after drawing distance rings on the rendered frames and finding the real ponds 150 to 350 m away. Imagery resolution decided which source to use: at 0.6 m per pixel a market reads as a row of barns, at 0.2 m per pixel it reads correctly, and no amount of rewording fixed it. Because a single pass flips roughly one row in four on the borderline cases, every change was judged on repeated runs rather than on one result.',
-        year: '2026', kind: 'AI / LLM',
+        year: '2026', kind: 'Web',
         lastModified: '2026-10-16',
     },
     {
@@ -103,8 +103,32 @@ export const projects: Project[] = [
             '~71% test coverage against a real Postgres test database (no SQLAlchemy mocking)',
         ],
         challenges: 'Designing for one specific user under a fixed monthly cost ceiling forced every architectural decision: no multi-tenancy, no web dashboard, no embedding-based dedup in v1. The hexagonal layout (domain Protocols separate from Postgres adapters) keeps the LLM and Telegram concerns swappable behind one file each, so a future move to a local model or a different chat platform stays contained. The scoring loop also needed a versioned interests field so updating interests via Telegram re-grades only stale rows rather than the whole table.',
-        year: '2026', kind: 'AI / LLM',
+        year: '2026', kind: 'Web',
         lastModified: '2026-04-27',
+    },
+    {
+        title: 'Dolphin Tamiya',
+        slug: 'dolphin-tamiya',
+        description: 'The online home of Dolphin Model Hobby, a Tamiya hobby shop in Indonesia. One platform brings together a shop with cart and checkout, a community board where members post, react and reply, race announcements and results, and Tamiya news, all run from an admin dashboard. I built it full stack on my own, from the API and database to the storefront, the admin side and the production deployment.',
+        image: '/images/portofolio/p-dolphintamiya.jpg',
+        video: '/videos/portofolio/p-dolphintamiya.mp4',
+        technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'TanStack Query', 'NextAuth', 'Bun', 'Elysia', 'REST API', 'OpenAPI', 'AWS S3', 'Cloudflare', 'Docker', 'iPaymu', 'RajaOngkir'],
+        demo: 'https://dolphintamiya.com',
+        features: [
+            'A REST API on Bun and Elysia, documented with OpenAPI and covering products, cart, checkout, orders, reviews, wishlist, community, events, articles and site settings',
+            'An admin dashboard for products, orders, banners, news, events and users, with an activity log of admin actions',
+            'A product catalogue and market with category filters, search and sorting',
+            'Cart with instant updates that roll back if the server rejects them',
+            'Checkout with saved addresses, live shipping rates per courier through RajaOngkir, and payment through iPaymu',
+            'Order history with payment status, and product reviews with star ratings that open as soon as an order is paid',
+            'A Reddit-style community: posts by category, likes and dislikes, and threaded comment replies',
+            'Accounts with email verification and password reset, with protected pages guarded on the server',
+            'Maintenance mode that can take down a single page, such as the market, while the rest of the site stays up',
+            'Images stored on AWS S3, with the app shipped in Docker behind Cloudflare',
+        ],
+        challenges: 'Owning both ends meant the API could be shaped around what each screen actually needs, instead of the storefront stitching responses together. The shop has no live delivery tracking, so waiting for "delivered" before allowing a review meant most buyers would never be asked. Reviews now open the moment an order is paid, and each order shows which of its items still need one. Shipping cost depends on the courier the buyer picks, so rates come live from RajaOngkir per address instead of from a flat table. Maintenance also had to be finer than all-or-nothing: the maintenance settings live in the API, and the site checks the requested path on the server before rendering, so one section can be closed for work without taking the community and events down with it.',
+        year: '2025', kind: 'Web',
+        lastModified: '2026-11-09',
     },
     {
         title: 'My Wedding Website',
@@ -121,7 +145,7 @@ export const projects: Project[] = [
             'Mobile-optimized experience for all guests'
         ],
         challenges: 'Creating a website that balanced aesthetic appeal with functionality while ensuring it loaded quickly on mobile networks during the event required careful optimization of assets and responsive design implementation.',
-        year: '2025', kind: 'Personal',
+        year: '2025', kind: 'Web',
         lastModified: '2026-04-27',
     },
     {
@@ -141,7 +165,7 @@ export const projects: Project[] = [
             'Compliance with Indonesian educational regulations and standards'
         ],
         challenges: 'Developing a system that could accommodate the diverse needs of various educational institutions while ensuring compliance with Indonesian regulations required extensive research and stakeholder interviews. Additionally, creating a scalable architecture that could handle large volumes of data while maintaining performance across different regions with varying internet connectivity presented significant technical challenges. I implemented a modular design with careful database optimization and offline-first capabilities to ensure reliability in all usage scenarios.',
-        year: '2024', kind: 'SaaS',
+        year: '2024', kind: 'Web',
         lastModified: '2026-04-27',
     },
     {
@@ -159,7 +183,7 @@ export const projects: Project[] = [
             'Dockerized deployment for consistent environments'
         ],
         challenges: 'Creating a system that could handle high traffic during registration periods while ensuring data security for an international academic event required careful architecture planning. I implemented database optimizations and caching strategies to maintain performance under load.',
-        year: '2024', kind: 'Conference',
+        year: '2024', kind: 'Web',
         lastModified: '2026-04-27',
     },
     {

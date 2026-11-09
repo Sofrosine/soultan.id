@@ -52,6 +52,22 @@ export const projectsId: Record<string, ProjectText> = {
         ],
         challenges: 'Merancang untuk satu pengguna dengan batas biaya bulanan yang tetap memengaruhi setiap keputusan arsitektur: tidak ada multi-tenancy, tidak ada dashboard web, dan tidak ada deduplikasi berbasis embedding di versi pertama. Struktur heksagonal (Protocol domain dipisah dari adapter Postgres) membuat urusan LLM dan Telegram masing-masing cukup diganti di satu file, sehingga pindah ke model lokal atau platform chat lain nanti tetap terkendali. Loop penilaiannya juga butuh kolom minat yang berversi, supaya mengubah minat lewat Telegram hanya menilai ulang baris yang usang, bukan seluruh tabel.',
     },
+    'dolphin-tamiya': {
+        description: 'Rumah online Dolphin Model Hobby, toko hobi Tamiya di Indonesia. Satu platform berisi toko lengkap dengan keranjang dan checkout, papan komunitas tempat anggota bisa posting, memberi reaksi, dan saling membalas, pengumuman balapan beserta hasilnya, dan berita seputar Tamiya, semuanya dikelola dari dashboard admin. Saya mengerjakannya sendiri sebagai fullstack, dari API dan database, tampilan toko, sisi admin, sampai deploy ke production.',
+        features: [
+            'REST API dengan Bun dan Elysia, terdokumentasi dengan OpenAPI, mencakup produk, keranjang, checkout, pesanan, ulasan, wishlist, komunitas, event, artikel, dan pengaturan situs',
+            'Dashboard admin untuk produk, pesanan, banner, berita, event, dan pengguna, lengkap dengan log aktivitas admin',
+            'Katalog produk dan market dengan filter kategori, pencarian, dan pengurutan',
+            'Keranjang yang langsung berubah saat diklik dan otomatis kembali kalau server menolak',
+            'Checkout dengan alamat tersimpan, ongkir langsung per kurir lewat RajaOngkir, dan pembayaran lewat iPaymu',
+            'Riwayat pesanan beserta status pembayaran, plus ulasan produk dengan rating bintang yang bisa ditulis begitu pesanan dibayar',
+            'Komunitas ala Reddit: posting per kategori, like dan dislike, serta balasan komentar bertingkat',
+            'Akun dengan verifikasi email dan reset password, dengan halaman terproteksi yang dijaga di sisi server',
+            'Mode maintenance yang bisa menutup satu halaman saja, misalnya market, sementara bagian lain tetap jalan',
+            'Gambar disimpan di AWS S3, dan aplikasinya di-deploy dengan Docker di belakang Cloudflare',
+        ],
+        challenges: 'Karena memegang dua sisi sekaligus, API-nya bisa dibentuk sesuai kebutuhan tiap layar, bukan tampilan toko yang harus merangkai banyak respons. Toko ini tidak punya pelacakan pengiriman real-time, jadi kalau ulasan baru dibuka setelah status "terkirim", kebanyakan pembeli tidak akan pernah diminta mengulas. Sekarang ulasan bisa ditulis begitu pesanan dibayar, dan setiap pesanan menunjukkan barang mana yang belum diulas. Ongkir tergantung kurir yang dipilih pembeli, jadi tarifnya diambil langsung dari RajaOngkir untuk tiap alamat, bukan dari tabel tetap. Maintenance juga perlu lebih rinci daripada sekadar nyala atau mati: pengaturannya disimpan di API, dan situs mengecek halaman yang diminta di sisi server sebelum render, jadi satu bagian bisa ditutup untuk perbaikan tanpa ikut mematikan komunitas dan event.',
+    },
     'wedding-website': {
         title: 'Website Pernikahan Saya',
         description: 'Website pernikahan pribadi untuk membagikan detail acara, mengumpulkan RSVP, dan menampilkan foto. Dibangun dengan Next.js dan TailwindCSS, proyek ini memadukan desain yang cantik dengan fungsi yang praktis bagi para tamu.',
